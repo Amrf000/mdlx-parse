@@ -1,0 +1,3 @@
+#include "MDLEVENTKEY.h"
+
+MDLEVENTKEY::MDLEVENTKEY(){}
