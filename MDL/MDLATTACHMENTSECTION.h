@@ -4,7 +4,18 @@
 #include "MDLGENOBJECT.h"
 #include "MDLKEYTRACK.h"
 #include "MDLALPHAKEYFRAME.h"
-
+/*
+ATCH						// [Attachment]
+	long 	nbytes;
+	struct {
+		long	nbytesi;
+		OBJ
+		ASCII	Path			(0x100)
+		long	???;			(0)
+		long	AttachmentID;
+		(KATV)
+	} attachments[natts];
+*/
 class MDLATTACHMENTSECTION {
 public:
 	MDLATTACHMENTSECTION();

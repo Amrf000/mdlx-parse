@@ -2,7 +2,15 @@
 #define _MDLBONESECTION_H
 #include <stdint.h>
 #include "MDLGENOBJECT.h"
-
+/*
+BONE						// [Bone]
+	long	nbytes;
+	struct {
+		OBJ
+		long 	GeosetID;
+		long 	GeosetAnimID;
+	} bones[nbons];
+*/
 class MDLBONESECTION {
 public:
 	MDLBONESECTION();

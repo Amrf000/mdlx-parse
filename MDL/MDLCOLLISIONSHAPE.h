@@ -3,7 +3,19 @@
 #include <stdint.h>
 #include <string.h>
 #include "MDLGENOBJECT.h"
-
+/*
+CLID						// [CollisionShape] (now has VRTX and NRMS)
+	long	nbytes;
+	struct {
+		OBJ
+		long	Shape;			(0:box;2:sphere)
+		float 	x, y, z;
+		if (Shape == 0)
+			float	x2, y2, z2;
+		else
+			float	BoundsRadius
+	} collisionshape[nclds];
+*/
 class MDLCOLLISIONSHAPE {
 public:
 	MDLCOLLISIONSHAPE();
