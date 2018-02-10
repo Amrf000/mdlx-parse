@@ -1,1 +1,10 @@
+#ifndef _MDLCOLORKEYFRAME_H
+#define _MDLCOLORKEYFRAME_H
+#include <stdint.h>
 
+class MDLCOLORKEYFRAME {
+public:
+	MDLCOLORKEYFRAME();
+	MDLCOLORKEYFRAME(const MDLCOLORKEYFRAME *a2);
+};
+#endif

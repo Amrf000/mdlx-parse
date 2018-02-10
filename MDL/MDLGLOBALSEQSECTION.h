@@ -1,1 +1,9 @@
+#ifndef _MDLGLOBALSEQSECTION_H
+#define _MDLGLOBALSEQSECTION_H
+#include <stdint.h>
 
+class MDLGLOBALSEQSECTION {
+public:
+	MDLGLOBALSEQSECTION();
+};
+#endif

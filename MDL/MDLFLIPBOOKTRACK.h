@@ -1,1 +1,13 @@
+#ifndef _MDLFLIPBOOKTRACK_H
+#define _MDLFLIPBOOKTRACK_H
+#include <stdint.h>
+#include "MDLKEYTRACK.h"
+#include "MDLFLIPBOOKKEY.h"
 
+class MDLFLIPBOOKTRACK {
+public:
+	MDLFLIPBOOKTRACK();
+	MDLFLIPBOOKTRACK(const MDLFLIPBOOKTRACK *a2);
+	~MDLFLIPBOOKTRACK();
+};
+#endif

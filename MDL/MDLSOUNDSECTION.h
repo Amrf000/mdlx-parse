@@ -1,1 +1,8 @@
+#ifndef _MDLSOUNDSECTION_H
+#define _MDLSOUNDSECTION_H
 
+class MDLSOUNDSECTION{
+public:
+	MDLSOUNDSECTION();	
+};
+#endif

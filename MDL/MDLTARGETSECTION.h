@@ -1,1 +1,13 @@
+#ifndef _MDLTARGETSECTION_H
+#define _MDLTARGETSECTION_H
+#include <stdint.h>
+#include "MDLKEYTRACK.h"
+#include "MDLTRANSKEYFRAME.h"
 
+class MDLTARGETSECTION {
+public:
+	MDLTARGETSECTION();
+	MDLTARGETSECTION(const MDLTARGETSECTION *a2);
+	~MDLTARGETSECTION();
+};
+#endif

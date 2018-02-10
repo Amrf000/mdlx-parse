@@ -1,1 +1,9 @@
+#ifndef _MDLINTENSITYKEYFRAME_H
+#define _MDLINTENSITYKEYFRAME_H
+#include <stdint.h>
 
+class MDLINTENSITYKEYFRAME {
+public:
+	MDLINTENSITYKEYFRAME();
+};
+#endif

@@ -1,1 +1,13 @@
+#ifndef _MDLEVENTSECTION_H
+#define _MDLEVENTSECTION_H
+#include <stdint.h>
+#include "MDLGENOBJECT.h"
+#include "MDLEVENTTRACK.h"
 
+class MDLEVENTSECTION{
+public:
+	MDLEVENTSECTION();
+	MDLEVENTSECTION(const MDLEVENTSECTION *a2);
+	~MDLEVENTSECTION();
+};
+#endif

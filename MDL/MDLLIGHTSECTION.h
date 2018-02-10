@@ -1,1 +1,16 @@
+#ifndef _MDLLIGHTSECTION_H
+#define _MDLLIGHTSECTION_H
+#include <stdint.h>
+#include "MDLALPHAKEYFRAME.h"
+#include "MDLGENOBJECT.h"
+#include "MDLATTENKEYFRAME.h"
+#include "MDLCOLORKEYFRAME.h"
+#include "MDLINTENSITYKEYFRAME.h"
 
+class MDLLIGHTSECTION {
+public:
+	MDLLIGHTSECTION();
+	MDLLIGHTSECTION(const MDLLIGHTSECTION *a2);
+	~MDLLIGHTSECTION();
+};
+#endif

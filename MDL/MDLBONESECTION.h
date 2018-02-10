@@ -1,1 +1,12 @@
+#ifndef _MDLBONESECTION_H
+#define _MDLBONESECTION_H
+#include <stdint.h>
+#include "MDLGENOBJECT.h"
 
+class MDLBONESECTION {
+public:
+	MDLBONESECTION();
+	MDLBONESECTION(const MDLBONESECTION *a2);
+	~MDLBONESECTION();
+};
+#endif

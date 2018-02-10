@@ -1,1 +1,9 @@
+#ifndef _MDLFLOATPROPKEYFRAME_H
+#define _MDLFLOATPROPKEYFRAME_H
+#include <stdint.h>
 
+class MDLFLOATPROPKEYFRAME {
+public:
+	MDLFLOATPROPKEYFRAME();
+};
+#endif
