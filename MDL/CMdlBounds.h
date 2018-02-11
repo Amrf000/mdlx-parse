@@ -5,5 +5,9 @@
 class CMdlBounds{
 public:
 	CMdlBounds();
+public:
+	float	BoundsRadius;
+	float	MinExtx, MinExty, MinExtz;
+	float	MaxExtx, MaxExty, MaxExtz;
 };
 #endif
