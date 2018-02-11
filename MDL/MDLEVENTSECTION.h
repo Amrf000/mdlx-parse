@@ -14,10 +14,13 @@ EVTS						// [EventObject]
 		long 	frames[ntrks];
 	} events[nevts];
 */
-class MDLEVENTSECTION{
+class MDLEVENTSECTION:public MDLGENOBJECT
+{
 public:
 	MDLEVENTSECTION();
 	MDLEVENTSECTION(const MDLEVENTSECTION *a2);
 	~MDLEVENTSECTION();
+public:
+	MDLEVENTTRACK 
 };
 #endif

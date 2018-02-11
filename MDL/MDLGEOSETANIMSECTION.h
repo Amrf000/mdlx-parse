@@ -17,10 +17,18 @@ GEOA						// [GeosetAnim]
 		(KGAC)
 	} geosanims[ngsan];
 */
-class MDLGEOSETANIMSECTION {
+class MDLGEOSETANIMSECTION:public MDLKEYTRACK<MDLALPHAKEYFRAME>
+{
 public:
 	MDLGEOSETANIMSECTION();
 	MDLGEOSETANIMSECTION(const MDLGEOSETANIMSECTION *a2);
 	~MDLGEOSETANIMSECTION();
+public:
+	float	staticAlpha;
+    MDLKEYTRACK<MDLALPHAKEYFRAME> 
+	uint32_t	ColorAnimation;
+    MDLKEYTRACK<MDLCOLORKEYFRAME>
+	float	ColorR, ColorG, ColorB;
+	uint32_t	GeosetID;
 };
 #endif

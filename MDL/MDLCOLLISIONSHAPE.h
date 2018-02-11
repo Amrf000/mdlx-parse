@@ -16,11 +16,17 @@ CLID						// [CollisionShape] (now has VRTX and NRMS)
 			float	BoundsRadius
 	} collisionshape[nclds];
 */
-class MDLCOLLISIONSHAPE {
+class MDLCOLLISIONSHAPE:public MDLGENOBJECT
+{
 public:
 	MDLCOLLISIONSHAPE();
 	MDLCOLLISIONSHAPE(const MDLCOLLISIONSHAPE *a2);
 	uint32_t *operator=(uint32_t *a2);
 	~MDLCOLLISIONSHAPE();
+public:
+	uint32_t shape;
+    float 	x, y, z;
+	float	x2, y2, z2;
+	float	BoundsRadius
 };
 #endif

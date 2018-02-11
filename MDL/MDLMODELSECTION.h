@@ -2,12 +2,21 @@
 #define _MDLMODELSECTION_H
 #include <stdint.h>
 #include "CMdlBounds.h"
-
+/*
+MODL						// [Model] (extra byte before blendTIme (0))
+	long	nbytes;
+	ASCII	Name;				(0x150 bytes)
+	long	???;				(0)
+	float	BoundsRadius;
+	float	MinExtx, MinExty, MinExtz;
+	float	MaxExtx, MaxExty, MaxExtz;
+	long	BlendTime;
+*/
 class MDLMODELSECTION{
 public:
 	MDLMODELSECTION();
 public:
-	uint8_t m_0;
+	uint8_t Name[340];
 	uint8_t m_20;
 	uint32_t m_85;
 	uint32_t m_86;
@@ -21,6 +30,6 @@ public:
 	uint32_t m_94;
 	uint32_t m_95;
 	CMdlBounds m_96;
-	uint32_t m_103;
+	uint32_t BlendTime;
 };
 #endif

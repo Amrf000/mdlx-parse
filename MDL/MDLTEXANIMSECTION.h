@@ -5,7 +5,16 @@
 #include "MDLTRANSKEYFRAME.h"
 #include "MDLROTKEYFRAME.h"
 #include "MDLSCALEKEYFRAME.h"
-
+/*
+TXAN						// [Texture Animations]
+	long 	nbytes;
+	struct {
+		long	nbytesi;
+		(KTAT)				// Might be optional
+		(KTAR)
+		(KTAS)
+	} txanims[nanims];
+*/
 class MDLTEXANIMSECTION {
 public:
 	MDLTEXANIMSECTION();

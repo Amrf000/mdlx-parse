@@ -3,10 +3,23 @@
 #include <stdint.h>
 #include "../Base/TSStaticDynamicArray.h"
 #include "MDLTEXLAYER.h"
-
+/*
+MTLS						// [Materials]
+	long	nbytes;
+	struct {
+		long	nbytesi;
+		long	PriorityPlane;
+		long	RenderMode;		(+1:ConstantColor;+16:SortPrimsFarZ;+32:FullResolution)
+		LAYS
+	} materials[nmtls];
+*/
 class MDLMATERIALSECTION {
 public:
 	MDLMATERIALSECTION();
 	MDLMATERIALSECTION(const MDLMATERIALSECTION *a2);
+public:
+	std::vector<MDLTEXLAYER> LAYS;
+	long	PriorityPlane;
+	long	RenderMode;
 };
 #endif

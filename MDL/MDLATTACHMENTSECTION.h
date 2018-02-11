@@ -16,10 +16,15 @@ ATCH						// [Attachment]
 		(KATV)
 	} attachments[natts];
 */
-class MDLATTACHMENTSECTION {
+class MDLATTACHMENTSECTION:public MDLGENOBJECT
+{
 public:
 	MDLATTACHMENTSECTION();
 	MDLATTACHMENTSECTION(const MDLATTACHMENTSECTION *a2);
 	~MDLATTACHMENTSECTION();
+public:
+	uint8_t Path[260];
+	MDLKEYTRACK<MDLALPHAKEYFRAME> KATV;
+	uint32_t AttachmentID;
 };
 #endif

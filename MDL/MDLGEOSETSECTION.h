@@ -38,5 +38,20 @@ public:
 	MDLGEOSETSECTION();
 	MDLGEOSETSECTION(const MDLGEOSETSECTION *a2);
 	~MDLGEOSETSECTION();
+	std::vector<C3Vector>
+	std::vector<C3Vector>
+    std::vector<std::vector<C2Vector> >
+	std::vector<unsigned char>
+	MDLPRIMITIVES 
+	std::vector<unsigned int>
+	std::vector<unsigned int>
+	long	MaterialID;
+	long	SelectionGroup;
+	long	Selectable		(0:none;4:Unselectable)
+	float	BoundsRadius;
+	float	MinExtx, MinExty, MinExtz;
+	float	MaxExtx, MaxExty, MaxExtz;
+	long 	nanim;
+	CMdlBounds
 };
 #endif
