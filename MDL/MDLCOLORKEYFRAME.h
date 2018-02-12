@@ -5,6 +5,11 @@
 class MDLCOLORKEYFRAME {
 public:
 	MDLCOLORKEYFRAME();
-	MDLCOLORKEYFRAME(const MDLCOLORKEYFRAME *a2);
+	MDLCOLORKEYFRAME(const MDLCOLORKEYFRAME& that);
+public:
+	long	Frame;
+	float	x, y, z;
+	float	InTanx, InTany, InTanz;
+	float	OutTanx, OutTany, OutTanz;
 };
 #endif

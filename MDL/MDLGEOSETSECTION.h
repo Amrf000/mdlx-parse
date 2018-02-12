@@ -1,8 +1,7 @@
 #ifndef _MDLGEOSETSECTION_H
 #define _MDLGEOSETSECTION_H
 #include <stdint.h>
-#include "../Base/TSGrowableArray.h"
-#include "../Tempest/tempest.h"
+#include <vector>
 #include "MDLPRIMITIVES.h"
 /*
 GEOS						// [Geoset]
@@ -47,7 +46,7 @@ public:
 	std::vector<unsigned int>
 	long	MaterialID;
 	long	SelectionGroup;
-	long	Selectable		(0:none;4:Unselectable)
+	long	Selectable;//		(0:none;4:Unselectable)
 	float	BoundsRadius;
 	float	MinExtx, MinExty, MinExtz;
 	float	MaxExtx, MaxExty, MaxExtz;

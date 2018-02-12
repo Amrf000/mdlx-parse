@@ -18,10 +18,8 @@ KMTA						// [Alpha]
 class MDLALPHAKEYFRAME {
 public:
 	MDLALPHAKEYFRAME();
+	MDLALPHAKEYFRAME(const MDLALPHAKEYFRAME& that);
 public:
-	long	nunks;
-	long	LineType;
-	long	GlobalSeqId;
 	long	Frame;
 	float	State;
 	float	InTan;

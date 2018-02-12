@@ -17,17 +17,33 @@ GEOA						// [GeosetAnim]
 		(KGAC)
 	} geosanims[ngsan];
 */
-class MDLGEOSETANIMSECTION:public MDLKEYTRACK<MDLALPHAKEYFRAME>
+
+/*
+KMTA						// [Alpha]
+	long	nunks;
+	long	LineType;			(0:don't interp;1:linear;2:hermite;3:bezier)
+	long	GlobalSeqId;			// 0xFFFFFFFF if none
+	struct {
+		long	Frame;
+		float	State;			(0 or 1)
+		if (LineType > 1) {
+			float	InTan;
+			float	OutTan;
+		}
+	} alpha[nunks];
+*/
+class MDLGEOSETANIMSECTION
 {
 public:
 	MDLGEOSETANIMSECTION();
-	MDLGEOSETANIMSECTION(const MDLGEOSETANIMSECTION *a2);
+	MDLGEOSETANIMSECTION(const MDLGEOSETANIMSECTION& that);
 	~MDLGEOSETANIMSECTION();
 public:
+	MDLKEYTRACK<MDLALPHAKEYFRAME> KGAO1;
 	float	staticAlpha;
-    MDLKEYTRACK<MDLALPHAKEYFRAME> 
+	MDLKEYTRACK<MDLALPHAKEYFRAME> KGAO2;
 	uint32_t	ColorAnimation;
-    MDLKEYTRACK<MDLCOLORKEYFRAME>
+	MDLKEYTRACK<MDLCOLORKEYFRAME> KGAC;
 	float	ColorR, ColorG, ColorB;
 	uint32_t	GeosetID;
 };

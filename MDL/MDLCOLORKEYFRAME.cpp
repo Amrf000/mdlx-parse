@@ -2,45 +2,27 @@
 
 MDLCOLORKEYFRAME::MDLCOLORKEYFRAME()
 {
-	uint32_t *v1; // ecx
-	int result; // eax
-	uint32_t *v3; // ecx
-	uint32_t *v4; // ecx
-
-	*(uint32_t *)this = 0;
-	v1 = (uint32_t *)((char *)this + 4);
-	result = 0;
-	*v1 = 0;
-	v1[1] = 0;
-	v1[2] = 0;
-	v3 = (uint32_t *)((char *)this + 16);
-	*v3 = 0;
-	v3[1] = 0;
-	v3[2] = 0;
-	v4 = (uint32_t *)((char *)this + 28);
-	*v4 = 0;
-	v4[1] = 0;
-	v4[2] = 0;
+	Frame = 0;
+	x = 0;
+	y = 0;
+	z = 0;
+	InTanx = 0;
+	InTany = 0;
+	InTanz = 0;
+	OutTanx = 0;
+	OutTany = 0;
+	OutTanz = 0;
 }
-MDLCOLORKEYFRAME::MDLCOLORKEYFRAME(const MDLCOLORKEYFRAME *a2)
+MDLCOLORKEYFRAME::MDLCOLORKEYFRAME(const MDLCOLORKEYFRAME& that)
 {
-	uint32_t *v2; // edi
-	uint32_t *v3; // edi
-	uint32_t *v4; // edi
-	int result; // eax
-
-	*(uint32_t *)this = *(uint32_t *)a2;
-	v2 = (uint32_t *)((char *)this + 4);
-	*v2 = *((uint32_t *)a2 + 1);
-	v2[1] = *((uint32_t *)a2 + 2);
-	v2[2] = *((uint32_t *)a2 + 3);
-	v3 = (uint32_t *)((char *)this + 16);
-	*v3 = *((uint32_t *)a2 + 4);
-	v3[1] = *((uint32_t *)a2 + 5);
-	v3[2] = *((uint32_t *)a2 + 6);
-	v4 = (uint32_t *)((char *)this + 28);
-	*v4 = *((uint32_t *)a2 + 7);
-	v4[1] = *((uint32_t *)a2 + 8);
-	result = *((uint32_t *)a2 + 9);
-	v4[2] = result;
+	Frame = that.Frame;
+	x = that.x;
+	y = that.y;
+	z = that.z;
+	InTanx = that.InTanx;
+	InTany = that.InTany;
+	InTanz = that.InTanz;
+	OutTanx = that.OutTanx;
+	OutTany = that.OutTany;
+	OutTanz = that.OutTanz;
 }

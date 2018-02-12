@@ -1,22 +1,28 @@
 #ifndef _MDLKEYTRACK_H
 #define _MDLKEYTRACK_H
 #include <stdint.h>
+#include <vector>
 
 template<typename T>
 class MDLKEYTRACK {
 public:
-	MDLKEYTRACK( int a2)
+	MDLKEYTRACK( int LineType_):
+		LineType(LineType_),
+		GlobalSeqId(-1)
 	{
-		int result; // eax
-		uint32_t* a1 = (uint32_t*)this;
-		//TSGrowableArray<MDLINTKEY, TSCD<MDLINTKEY>>::TSGrowableArray(a1);
-		result = a2;
-		*(uint32_t *)(a1 + 16) = a2;
-		*(uint32_t *)(a1 + 20) = -1;
+	}
+	MDLKEYTRACK(const MDLKEYTRACK& that):
+		tunk(that.tunk),
+		LineType(that.LineType),
+		GlobalSeqId(that.GlobalSeqId)
+	{
 	}
 	~MDLKEYTRACK()
 	{
-		//TSFixedArray<MDLFLOATPROPKEYFRAME, TSCD<MDLFLOATPROPKEYFRAME>>::~TSFixedArray(a1);
 	}
+public:
+	std::vector<T> tunk;
+	long	LineType;
+	long    GlobalSeqId;
 };
 #endif
