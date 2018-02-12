@@ -9,8 +9,8 @@ GLBS						// [GlobalSequences]
 class MDLGLOBALSEQSECTION {
 public:
 	MDLGLOBALSEQSECTION();
+	MDLGLOBALSEQSECTION(const MDLGLOBALSEQSECTION& that);
 public:
-	long	nbytes;
-	long	durations[ndurs];
+	long	durations;
 };
 #endif

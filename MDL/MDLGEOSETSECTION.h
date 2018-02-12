@@ -3,6 +3,10 @@
 #include <stdint.h>
 #include <vector>
 #include "MDLPRIMITIVES.h"
+#include "CMdlBounds.h"
+
+class C2Vector;
+class C3Vector;
 /*
 GEOS						// [Geoset]
 	long	nbytes;
@@ -35,22 +39,20 @@ GEOS						// [Geoset]
 class MDLGEOSETSECTION {
 public:
 	MDLGEOSETSECTION();
-	MDLGEOSETSECTION(const MDLGEOSETSECTION *a2);
+	MDLGEOSETSECTION(const MDLGEOSETSECTION& a2);
 	~MDLGEOSETSECTION();
-	std::vector<C3Vector>
-	std::vector<C3Vector>
-    std::vector<std::vector<C2Vector> >
-	std::vector<unsigned char>
-	MDLPRIMITIVES 
-	std::vector<unsigned int>
-	std::vector<unsigned int>
+public:
+	std::vector<C3Vector> VRTX;
+	std::vector<C3Vector> NRMS;
+	std::vector<std::vector<C2Vector> > UVBS;
+	std::vector<unsigned char> GNDX;
+	MDLPRIMITIVES PRIM;
+	std::vector<unsigned int> MTGC;
+	std::vector<unsigned int> MATS;
 	long	MaterialID;
+	CMdlBounds bound;
+	std::vector<CMdlBounds> bounds;
 	long	SelectionGroup;
 	long	Selectable;//		(0:none;4:Unselectable)
-	float	BoundsRadius;
-	float	MinExtx, MinExty, MinExtz;
-	float	MaxExtx, MaxExty, MaxExtz;
-	long 	nanim;
-	CMdlBounds
 };
 #endif

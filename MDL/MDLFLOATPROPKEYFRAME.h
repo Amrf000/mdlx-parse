@@ -5,5 +5,8 @@
 class MDLFLOATPROPKEYFRAME {
 public:
 	MDLFLOATPROPKEYFRAME();
+	MDLFLOATPROPKEYFRAME(const MDLFLOATPROPKEYFRAME& that);
+public:
+	long x, y, z, w;
 };
 #endif

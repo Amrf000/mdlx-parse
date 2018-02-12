@@ -3,6 +3,9 @@
 
 class MDLFLIPBOOKKEY{
 public:
-	MDLFLIPBOOKKEY();	
+	MDLFLIPBOOKKEY();
+	MDLFLIPBOOKKEY(const MDLFLIPBOOKKEY& that);
+public:
+	long x, y;
 };
 #endif

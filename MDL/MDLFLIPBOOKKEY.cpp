@@ -1,3 +1,13 @@
 #include "MDLFLIPBOOKKEY.h"
 
-MDLFLIPBOOKKEY::MDLFLIPBOOKKEY(){}
+MDLFLIPBOOKKEY::MDLFLIPBOOKKEY()
+{
+	x = 0;
+	y = 0;
+}
+
+MDLFLIPBOOKKEY::MDLFLIPBOOKKEY(const MDLFLIPBOOKKEY& that)
+{
+	x = that.x;
+	y = that.y;
+}
