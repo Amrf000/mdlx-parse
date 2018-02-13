@@ -1,6 +1,7 @@
 #ifndef _MDLTEXTURESECTION_H
 #define _MDLTEXTURESECTION_H
 #include <stdint.h>
+#include <string.h>
 /*
 TEXS						// [Textures] (same as v800)
 	long	nbytes;
@@ -14,5 +15,10 @@ TEXS						// [Textures] (same as v800)
 class MDLTEXTURESECTION {
 public:
 	MDLTEXTURESECTION();
+	MDLTEXTURESECTION(const MDLTEXTURESECTION& that);
+public:
+	long	ReplaceableID;
+	char    TexturePath[260];
+	long	Wrapping;
 };
 #endif

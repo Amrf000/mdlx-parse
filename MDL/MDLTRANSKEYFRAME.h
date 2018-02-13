@@ -5,5 +5,11 @@
 class MDLTRANSKEYFRAME {
 public:
 	MDLTRANSKEYFRAME();
+	MDLTRANSKEYFRAME(const MDLTRANSKEYFRAME& that);
+public:
+	long	Frame;
+	float	x, y, z;
+	float	InTanx, InTany, InTanz;
+	float	OutTanx, OutTany, OutTanz;
 };
 #endif

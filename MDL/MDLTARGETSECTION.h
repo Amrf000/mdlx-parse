@@ -3,11 +3,19 @@
 #include <stdint.h>
 #include "MDLKEYTRACK.h"
 #include "MDLTRANSKEYFRAME.h"
-
+/*
+struct { 			// Target
+	float	x, y, z;
+	(KCTR)
+}
+*/
 class MDLTARGETSECTION {
 public:
 	MDLTARGETSECTION();
-	MDLTARGETSECTION(const MDLTARGETSECTION *a2);
+	MDLTARGETSECTION(const MDLTARGETSECTION& that);
 	~MDLTARGETSECTION();
+public:
+	float x, y, z;
+	MDLKEYTRACK<MDLTRANSKEYFRAME>  KCTR;
 };
 #endif

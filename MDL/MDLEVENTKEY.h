@@ -5,5 +5,8 @@
 class MDLEVENTKEY {
 public:
 	MDLEVENTKEY();
+	MDLEVENTKEY(const MDLEVENTKEY& that);
+public:
+	long val;
 };
 #endif

@@ -18,10 +18,8 @@ KGSC						// [Scaling]
 class MDLSCALEKEYFRAME {
 public:
 	MDLSCALEKEYFRAME();
+	MDLSCALEKEYFRAME(const MDLSCALEKEYFRAME& that);
 public:
-	long	nunks;
-    long	LineType;
-	long	GlobalSeqId;
 	long	Frame;
 	float	x, y, z;
 	float	InTanx, InTany, InTanz;

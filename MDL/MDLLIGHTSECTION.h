@@ -25,25 +25,27 @@ LITE						// [Light]
 		(KLBI)
 	} lights[nlits];
 */
-class MDLLIGHTSECTION:public MDLGENOBJECT
+class MDLLIGHTSECTION
 {
 public:
 	MDLLIGHTSECTION();
-	MDLLIGHTSECTION(const MDLLIGHTSECTION *a2);
+	MDLLIGHTSECTION(const MDLLIGHTSECTION& that);
 	~MDLLIGHTSECTION();
 public:
+	MDLGENOBJECT OBJ;
 	long	Type;
 	MDLKEYTRACK<MDLATTENKEYFRAME>
+	float	AttStart;
 	MDLKEYTRACK<MDLATTENKEYFRAME> 
-    float	AttStart, AttEnd;
+    float	AttEnd;
+    MDLKEYTRACK<MDLCOLORKEYFRAME>
 	float	ColR, ColG, ColB;
-	float	Intensity;
-	float	AmbColR, AmbColG, AmbColB;
-	float	AmbIntensity;
-    MDLKEYTRACK<MDLCOLORKEYFRAME>
     MDLKEYTRACK<MDLINTENSITYKEYFRAME>
+	float	Intensity;
     MDLKEYTRACK<MDLCOLORKEYFRAME>
+	float	AmbColR, AmbColG, AmbColB;
 	MDLKEYTRACK<MDLINTENSITYKEYFRAME>
+	float	AmbIntensity;
 	MDLKEYTRACK<MDLALPHAKEYFRAME>
 };
 #endif

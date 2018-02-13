@@ -5,5 +5,8 @@
 class MDLSOUNDKEYFRAME {
 public:
 	MDLSOUNDKEYFRAME();
+	MDLSOUNDKEYFRAME(const MDLSOUNDKEYFRAME& that);
+public:
+	long x, y;
 };
 #endif

@@ -1,6 +1,7 @@
 #ifndef _MDLSEQUENCESSECTION_H
 #define _MDLSEQUENCESSECTION_H
 #include <stdint.h>
+#include <string.h>
 #include "CMdlBounds.h"
 /*
 SEQS						// [Sequences] (v13: +8 bytes?)
@@ -20,15 +21,15 @@ SEQS						// [Sequences] (v13: +8 bytes?)
 class MDLSEQUENCESSECTION {
 public:
 	MDLSEQUENCESSECTION();
-	MDLSEQUENCESSECTION(const MDLSEQUENCESSECTION *a2);
+	MDLSEQUENCESSECTION(const MDLSEQUENCESSECTION& that);
 public:
-	uint32_t m_0;
-	uint32_t m_1;
-	uint32_t m_2;
-	uint32_t m_3;
-	uint32_t m_4;
-	uint32_t m_5;
-	CMdlBounds m_8;
+	long IntStart;
+	long IntEnd;
+	float	MoveSpeed;
+	long	NoLooping;
+	float	Rarity;
+	long    x;
+	CMdlBounds bound;
 	uint8_t Name[80];
 };
 #endif

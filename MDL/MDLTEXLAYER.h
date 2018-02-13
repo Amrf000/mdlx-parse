@@ -21,10 +21,9 @@ LAYS						// [Layer} (ID may have been removed, extra bytes...)
 class MDLTEXLAYER {
 public:
 	MDLTEXLAYER();
-	MDLTEXLAYER(const MDLTEXLAYER *a2);
+	MDLTEXLAYER(const MDLTEXLAYER& that);
 	~MDLTEXLAYER();
 public:
-	long	nlays;
 	long	FilterMode;
     long	Shading;
 	long	TextureID; 

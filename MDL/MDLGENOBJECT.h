@@ -20,7 +20,7 @@ OBJ
 class MDLGENOBJECT {
 public:
 	MDLGENOBJECT(unsigned int a2);
-	MDLGENOBJECT(const MDLGENOBJECT *a2);
+	MDLGENOBJECT(const MDLGENOBJECT& that);
 	~MDLGENOBJECT();
 	int operator=(int a2);
 public:
