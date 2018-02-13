@@ -1,44 +1,34 @@
 #include "MDLGENOBJECT.h"
 
-int sub_1A500(uint8_t *a1, uint8_t *a2, int a3);
-MDLGENOBJECT::MDLGENOBJECT(unsigned int a2)
+MDLGENOBJECT::MDLGENOBJECT(unsigned int Type_):
+	KGTR(2),
+	KGRT(2),
+	KGSC(2)
 {
-	*(uint8_t *)this = 0;
-	*((uint32_t *)this + 20) = 0;
-	*((uint32_t *)this + 21) = -1;
-	*((uint32_t *)this + 22) = a2;
-	//MDLKEYTRACK<MDLTRANSKEYFRAME>::MDLKEYTRACK((char *)this + 92, 2);
-	//MDLKEYTRACK<MDLROTKEYFRAME>::MDLKEYTRACK((char *)this + 116, 2);
-	//MDLKEYTRACK<MDLSCALEKEYFRAME>::MDLKEYTRACK((char *)this + 140, 2);
+	Name[0] = 0;
+	ObjectID = 0;
+	Parent = -1;
+	Type = Type_;
 }
-MDLGENOBJECT::MDLGENOBJECT( const MDLGENOBJECT *a2)
+MDLGENOBJECT::MDLGENOBJECT( const MDLGENOBJECT& that):
+	KGTR(that.KGTR),
+	KGRT(that.KGRT),
+	KGSC(that.KGSC)
 {
-	sub_1A500((uint8_t*)this, (uint8_t*)a2, 80);
-	*((uint32_t *)this + 20) = *((uint32_t *)a2 + 20);
-	*((uint32_t *)this + 21) = *((uint32_t *)a2 + 21);
-	*((uint32_t *)this + 22) = *((uint32_t *)a2 + 22);
-	//MDLKEYTRACK<MDLTRANSKEYFRAME>::MDLKEYTRACK((char *)this + 92, (char *)a2 + 92);
-	//MDLKEYTRACK<MDLROTKEYFRAME>::MDLKEYTRACK((char *)this + 116, (char *)a2 + 116);
-	//MDLKEYTRACK<MDLSCALEKEYFRAME>::MDLKEYTRACK((char *)this + 140, (char *)a2 + 140);
+	memcpy(Name, that.Name, 80);
+	ObjectID = that.ObjectID;
+	Parent = that.Parent;
+	Type = that.Type;
 }
 MDLGENOBJECT::~MDLGENOBJECT()
 {
-	//MDLKEYTRACK<MDLSCALEKEYFRAME>::~MDLKEYTRACK((char *)this + 140);
-	//MDLKEYTRACK<MDLROTKEYFRAME>::~MDLKEYTRACK((char *)this + 116);
-	//MDLKEYTRACK<MDLTRANSKEYFRAME>::~MDLKEYTRACK((char *)this + 92);
 }
-int MDLGENOBJECT::operator=( int a2)
+MDLGENOBJECT& MDLGENOBJECT::operator=(const MDLGENOBJECT& that)
 {
-	uint32_t *v2; // edi
-	uint32_t *v3; // edi
-	uint32_t *v4; // esi
-	uint32_t* a1 = (uint32_t*)this;
-
-	sub_1A500((uint8_t *)a1, (uint8_t *)a2, 80);
-	*(uint32_t *)(a1 + 80) = *(uint32_t *)(a2 + 80);
-	*(uint32_t *)(a1 + 84) = *(uint32_t *)(a2 + 84);
-	*(uint32_t *)(a1 + 88) = *(uint32_t *)(a2 + 88);
-	v2 = (uint32_t *)(a1 + 92);
+	memcpy(Name, that.Name, 80);
+	ObjectID = that.ObjectID;
+	Parent = that.Parent;
+	Type = that.Type;
 	//TSFixedArray<MDLTRANSKEYFRAME, TSCD<MDLTRANSKEYFRAME>>::operator=(a1 + 92, a2 + 92);
 	v2[3] = *(uint32_t *)(a2 + 104);
 	v2[4] = *(uint32_t *)(a2 + 108);
@@ -53,5 +43,5 @@ int MDLGENOBJECT::operator=( int a2)
 	v4[3] = *(uint32_t *)(a2 + 152);
 	v4[4] = *(uint32_t *)(a2 + 156);
 	v4[5] = *(uint32_t *)(a2 + 160);
-	return (int)a1;
+	return *this;
 }

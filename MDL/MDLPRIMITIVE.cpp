@@ -1,3 +1,11 @@
 #include "MDLPRIMITIVE.h"
 
-MDLPRIMITIVE::MDLPRIMITIVE(){}
+MDLPRIMITIVE::MDLPRIMITIVE()
+{
+	val = 0;
+}
+
+MDLPRIMITIVE::MDLPRIMITIVE(const MDLPRIMITIVE& that)
+{
+	val = that.val;
+}

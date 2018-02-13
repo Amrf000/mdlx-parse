@@ -4,6 +4,11 @@
 
 class MDLCOORD3FKEYFRAME {
 public:
-	MDLCOORD3FKEYFRAME(float a2, float a3, float a4);
+	MDLCOORD3FKEYFRAME(float x, float y, float z);
+public:
+	long	Frame;
+	float	x, y, z;
+	float	InTanx, InTany, InTanz;
+	float	OutTanx, OutTany, OutTanz;
 };
 #endif

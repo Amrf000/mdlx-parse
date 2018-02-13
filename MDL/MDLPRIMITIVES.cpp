@@ -2,11 +2,8 @@
 
 MDLPRIMITIVES::MDLPRIMITIVES()
 {
-	//TSStaticDynamicArray<MDLPRIMITIVE, 1>::TSStaticDynamicArray(this);
-	//TSGrowableArray<unsigned int, TSCD<unsigned int>>::TSGrowableArray((char *)this + 16);
-	//TSGrowableArray<unsigned short, TSCD<unsigned short>>::TSGrowableArray((char *)this + 32);
 }
-MDLPRIMITIVES::MDLPRIMITIVES(const MDLPRIMITIVES *a2)
+MDLPRIMITIVES::MDLPRIMITIVES(const MDLPRIMITIVES& that)
 {
 	//TSStaticDynamicArray<MDLPRIMITIVE, 1>::TSStaticDynamicArray(this, a2);
 	//TSGrowableArray<unsigned int, TSCD<unsigned int>>::TSGrowableArray((char *)this + 16, (char *)a2 + 16);
@@ -28,7 +25,4 @@ int MDLPRIMITIVES::SetCount( unsigned int a2, unsigned int a3)
 }
 MDLPRIMITIVES::~MDLPRIMITIVES()
 {
-	//TSFixedArray<unsigned short, TSCD<unsigned short>>::~TSFixedArray((char *)this + 32);
-	//TSFixedArray<unsigned int, TSCD<unsigned int>>::~TSFixedArray((char *)this + 16);
-	//TSStaticDynamicArray<MDLPRIMITIVE, 1>::~TSStaticDynamicArray(this);
 }

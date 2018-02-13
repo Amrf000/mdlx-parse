@@ -3,7 +3,8 @@
 #include <stdint.h>
 #include "MDLBASE.h"
 
-class MDLDATA{
+class MDLDATA:public MDLBASE
+{
 public:
 	MDLDATA();
 };

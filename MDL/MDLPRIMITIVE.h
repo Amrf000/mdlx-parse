@@ -11,5 +11,8 @@ PIVT						// [PivotPoints]
 class MDLPRIMITIVE {
 public:
 	MDLPRIMITIVE();
+	MDLPRIMITIVE(const MDLPRIMITIVE& that);
+public:
+	long val;
 };
 #endif

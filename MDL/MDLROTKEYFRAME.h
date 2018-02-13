@@ -18,5 +18,10 @@ KGRT						// [Rotation]
 class MDLROTKEYFRAME {
 public:
 	MDLROTKEYFRAME();
+public:
+	long	Frame;
+	float	a, b, c, d;
+	float	InTana, InTanb, InTanc, InTand;
+	float	OutTana, OutTanb, OutTanc, OutTand;
 };
 #endif

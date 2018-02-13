@@ -2,5 +2,4 @@
 
 MDLDATA::MDLDATA()
 {
-	//MDLBASE::MDLBASE(this);
 }
