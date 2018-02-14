@@ -5,5 +5,8 @@
 class MDLINTENSITYKEYFRAME {
 public:
 	MDLINTENSITYKEYFRAME();
+	MDLINTENSITYKEYFRAME(const MDLINTENSITYKEYFRAME& that);
+public:
+	long x, y, z, w;
 };
 #endif

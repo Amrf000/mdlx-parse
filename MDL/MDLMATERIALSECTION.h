@@ -1,7 +1,6 @@
 #ifndef _MDLMATERIALSECTION_H
 #define _MDLMATERIALSECTION_H
 #include <stdint.h>
-#include "../Base/TSStaticDynamicArray.h"
 #include "MDLTEXLAYER.h"
 /*
 MTLS						// [Materials]
@@ -16,7 +15,7 @@ MTLS						// [Materials]
 class MDLMATERIALSECTION {
 public:
 	MDLMATERIALSECTION();
-	MDLMATERIALSECTION(const MDLMATERIALSECTION *a2);
+	MDLMATERIALSECTION(const MDLMATERIALSECTION& that);
 public:
 	std::vector<MDLTEXLAYER> LAYS;
 	long	PriorityPlane;

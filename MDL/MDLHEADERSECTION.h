@@ -9,5 +9,8 @@ VERS						// [Version]
 class MDLHEADERSECTION{
 public:
 	MDLHEADERSECTION();
+public:
+	char a[256];
+	char b[256]
 };
 #endif

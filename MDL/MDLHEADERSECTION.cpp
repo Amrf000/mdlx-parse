@@ -2,6 +2,6 @@
 
 MDLHEADERSECTION::MDLHEADERSECTION()
 {
-	*(uint8_t *)this = 0;
-	*((uint8_t *)this + 257) = 0;
+	a[0] = 0;
+	b[0] = 0;
 }

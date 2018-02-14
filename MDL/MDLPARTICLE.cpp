@@ -1,29 +1,21 @@
 #include "MDLPARTICLE.h"
 
-int sub_1A500(uint8_t *a1, uint8_t *a2, int a3);
-MDLPARTICLE::MDLPARTICLE()
+MDLPARTICLE::MDLPARTICLE():
+	val1(2),
+	val2(2)
 {
-	int result; // eax
-
-	*(uint8_t *)this = 0;
-	//MDLKEYTRACK<MDLFLOATPROPKEYFRAME>::MDLKEYTRACK((char *)this + 260, 2);
-	*((uint32_t *)this + 71) = 0;
-	//result = MDLKEYTRACK<MDLFLOATPROPKEYFRAME>::MDLKEYTRACK((char *)this + 288, 2);
-	*((uint32_t *)this + 78) = 0;
+	Path[0] = 0;
+	LifeSpan = 0;
+	InitVelocity = 0;
 }
-MDLPARTICLE::MDLPARTICLE( const MDLPARTICLE *a2)
+MDLPARTICLE::MDLPARTICLE( const MDLPARTICLE& that):
+	val1(that.val1),
+	val2(that.val2)
 {
-	int result; // eax
-
-	sub_1A500((uint8_t*)this, (uint8_t*)a2, 260);
-	//MDLKEYTRACK<MDLFLOATPROPKEYFRAME>::MDLKEYTRACK((char *)this + 260, (char *)a2 + 260);
-	*((uint32_t *)this + 71) = *((uint32_t *)a2 + 71);
-	//MDLKEYTRACK<MDLFLOATPROPKEYFRAME>::MDLKEYTRACK((char *)this + 288, (char *)a2 + 288);
-	result = *((uint32_t *)a2 + 78);
-	*((uint32_t *)this + 78) = result;
+	memcpy(Path, that.Path, 260);
+	LifeSpan = that.LifeSpan;
+	InitVelocity = that.InitVelocity;
 }
 MDLPARTICLE::~MDLPARTICLE()
 {
-	//MDLKEYTRACK<MDLFLOATPROPKEYFRAME>::~MDLKEYTRACK((char *)this + 288);
-	//MDLKEYTRACK<MDLFLOATPROPKEYFRAME>::~MDLKEYTRACK((char *)this + 260);
 }

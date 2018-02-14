@@ -7,7 +7,9 @@
 class MDLINTTRACK {
 public:
 	MDLINTTRACK();
-	MDLINTTRACK(const MDLINTTRACK *a2);
+	MDLINTTRACK(const MDLINTTRACK& that);
 	~MDLINTTRACK();
+public:
+	MDLKEYTRACK<MDLINTKEY> val;
 };
 #endif

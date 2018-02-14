@@ -5,5 +5,8 @@
 class MDLINTKEY {
 public:
 	MDLINTKEY();
+	MDLINTKEY(const MDLINTKEY& that);
+public:
+	long x, y;
 };
 #endif

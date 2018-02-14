@@ -1,145 +1,128 @@
 #include "MDLPARTICLEEMITTER2.h"
 
-MDLPARTICLEEMITTER2::MDLPARTICLEEMITTER2()
+MDLPARTICLEEMITTER2::MDLPARTICLEEMITTER2():
+	OBJ(0x1000u),
+	KGTR(2),
+	KGRT(2),
+	KGSC(2),
+	KP2S(2),
+	KP2L(2),
+	KP2E(2),
+	KP2V(2),
+	KP2N(2)
 {
-	uint32_t *v1; // edx
-	uint32_t *v2; // edx
-	uint32_t *v3; // edx
-	int result; // eax
-
-	//MDLGENOBJECT::MDLGENOBJECT(this, 0x1000u);
-	*((uint32_t *)this + 41) = 0;
-	//MDLKEYTRACK<MDLFLOATPROPKEYFRAME>::MDLKEYTRACK((char *)this + 168, 2);
-	*((uint32_t *)this + 48) = 0;
-	//MDLKEYTRACK<MDLFLOATPROPKEYFRAME>::MDLKEYTRACK((char *)this + 196, 2);
-	*((uint32_t *)this + 55) = 0;
-	//MDLKEYTRACK<MDLFLOATPROPKEYFRAME>::MDLKEYTRACK((char *)this + 224, 2);
-	*((uint32_t *)this + 62) = 0;
-	//MDLKEYTRACK<MDLFLOATPROPKEYFRAME>::MDLKEYTRACK((char *)this + 252, 2);
-	*((uint32_t *)this + 69) = 0;
-	*((uint32_t *)this + 70) = 0;
-	//MDLKEYTRACK<MDLFLOATPROPKEYFRAME>::MDLKEYTRACK((char *)this + 284, 2);
-	*((uint32_t *)this + 77) = 0;
-	//MDLKEYTRACK<MDLFLOATPROPKEYFRAME>::MDLKEYTRACK((char *)this + 312, 2);
-	*((uint32_t *)this + 84) = 0;
-	//MDLKEYTRACK<MDLFLOATPROPKEYFRAME>::MDLKEYTRACK((char *)this + 340, 2);
-	*((uint32_t *)this + 91) = 0;
-	*((uint32_t *)this + 92) = 1;
-	*((uint32_t *)this + 93) = 1;
-	*((uint32_t *)this + 94) = 0;
-	*((uint32_t *)this + 95) = 0;
-	*((uint32_t *)this + 96) = 1056964608;
-	v1 = (uint32_t *)((char *)this + 388);
-	*v1 = 1132396544;
-	v1[1] = 1132396544;
-	v1[2] = 1132396544;
-	v2 = (uint32_t *)((char *)this + 400);
-	*v2 = 1132396544;
-	v2[1] = 1132396544;
-	v2[2] = 1132396544;
-	v3 = (uint32_t *)((char *)this + 412);
-	*v3 = 1132396544;
-	v3[1] = 1132396544;
-	v3[2] = 1132396544;
-	*((uint8_t *)this + 424) = 0;
-	*((uint8_t *)this + 425) = 0;
-	*((uint8_t *)this + 426) = 0;
-	*((uint32_t *)this + 107) = 1065353216;
-	*((uint32_t *)this + 108) = 1065353216;
-	*((uint32_t *)this + 109) = 1065353216;
-	*((uint32_t *)this + 110) = 0;
-	*((uint32_t *)this + 111) = 0;
-	*((uint32_t *)this + 112) = 0;
-	*((uint32_t *)this + 113) = 0;
-	*((uint32_t *)this + 114) = 0;
-	*((uint32_t *)this + 115) = 0;
-	*((uint32_t *)this + 116) = 0;
-	*((uint32_t *)this + 117) = 0;
-	*((uint32_t *)this + 118) = 0;
-	*((uint32_t *)this + 119) = 0;
-	*((uint32_t *)this + 120) = 0;
-	*((uint32_t *)this + 121) = 0;
-	//result = MDLKEYTRACK<MDLALPHAKEYFRAME>::MDLKEYTRACK((char *)this + 488, 2);
-	*((uint32_t *)this + 128) = 0;
-	*((uint32_t *)this + 129) = 0;
-	*((uint32_t *)this + 130) = 0;
-	*((uint32_t *)this + 131) = 0;
+		Speed = 0;
+        Variation = 0;
+		Latitidue = 0;
+		Gravity = 0;
+		Lifespan = 0;
+		EmissionRate = 0;
+		Length = 0;
+		Width = 0;
+		FilterMode = 0;
+		Rows = 1;
+		Columns = 1;
+		Flag2 = 0;
+		TailLength = 0;
+		Time = 1056964608;
+	R1 = 1132396544;
+	G1 = 1132396544;
+	B1 = 1132396544;
+	R2 = 1132396544;
+	G2 = 1132396544;
+	B2 = 1132396544;
+	R3 = 1132396544;
+	G3 = 1132396544;
+	B3 = 1132396544;
+	Alpha1 = 0;
+	A2 = 0;
+	A3 = 0;
+	ScalingX = 1065353216;
+	SY = 1065353216;
+	SZ = 1065353216;
+	LifeSpanUVAnim1 = 0;
+	L2 = 0;
+	L3 = 0;
+	DecayUVAnim1 = 0;
+	D2 = 0;
+	D3 = 0;
+	TailUVAnim1 = 0;
+	T2 = 0;
+	T3 = 0;
+	TailDecayUVAnim1 = 0;
+	TD2 = 0;
+	TD3 = 0;
+	TextureID = 0;
+	Squirt = 0;
+	PriorityPlane = 0;
+	ReplaceableID = 0;
 }
-MDLPARTICLEEMITTER2::MDLPARTICLEEMITTER2( const MDLPARTICLEEMITTER2 *a2)
+MDLPARTICLEEMITTER2::MDLPARTICLEEMITTER2( const MDLPARTICLEEMITTER2& that):
+	OBJ(that.OBJ),
+	KGTR(that.KGTR),
+	KGRT(that.KGRT),
+	KGSC(that.KGSC),
+	KP2S(that.KP2S),
+	KP2L(that.KP2L),
+	KP2E(that.KP2E),
+	KP2V(that.KP2V),
+	KP2N(that.KP2N)
 {
-	uint32_t *v2; // ecx
-	uint32_t *v3; // ecx
-	uint32_t *v4; // ecx
-	int result; // eax
-
 	//MDLGENOBJECT::MDLGENOBJECT(this, a2);
-	*((uint32_t *)this + 41) = *((uint32_t *)a2 + 41);
+	Speed = Speed;
 	//MDLKEYTRACK<MDLFLOATPROPKEYFRAME>::MDLKEYTRACK((char *)this + 168, (char *)a2 + 168);
-	*((uint32_t *)this + 48) = *((uint32_t *)a2 + 48);
+	Variation = Variation;
 	//MDLKEYTRACK<MDLFLOATPROPKEYFRAME>::MDLKEYTRACK((char *)this + 196, (char *)a2 + 196);
-	*((uint32_t *)this + 55) = *((uint32_t *)a2 + 55);
+	Latitidue = Latitidue;
 	//MDLKEYTRACK<MDLFLOATPROPKEYFRAME>::MDLKEYTRACK((char *)this + 224, (char *)a2 + 224);
-	*((uint32_t *)this + 62) = *((uint32_t *)a2 + 62);
+	Gravity = Gravity;
 	//MDLKEYTRACK<MDLFLOATPROPKEYFRAME>::MDLKEYTRACK((char *)this + 252, (char *)a2 + 252);
-	*((uint32_t *)this + 69) = *((uint32_t *)a2 + 69);
-	*((uint32_t *)this + 70) = *((uint32_t *)a2 + 70);
+	Lifespan = Lifespan;
+	EmissionRate = EmissionRate;
 	//MDLKEYTRACK<MDLFLOATPROPKEYFRAME>::MDLKEYTRACK((char *)this + 284, (char *)a2 + 284);
-	*((uint32_t *)this + 77) = *((uint32_t *)a2 + 77);
+	Length = Length;
 	//MDLKEYTRACK<MDLFLOATPROPKEYFRAME>::MDLKEYTRACK((char *)this + 312, (char *)a2 + 312);
-	*((uint32_t *)this + 84) = *((uint32_t *)a2 + 84);
+	Width = Width;
 	//MDLKEYTRACK<MDLFLOATPROPKEYFRAME>::MDLKEYTRACK((char *)this + 340, (char *)a2 + 340);
-	*((uint32_t *)this + 91) = *((uint32_t *)a2 + 91);
-	*((uint32_t *)this + 92) = *((uint32_t *)a2 + 92);
-	*((uint32_t *)this + 93) = *((uint32_t *)a2 + 93);
-	*((uint32_t *)this + 94) = *((uint32_t *)a2 + 94);
-	*((uint32_t *)this + 95) = *((uint32_t *)a2 + 95);
-	*((uint32_t *)this + 96) = *((uint32_t *)a2 + 96);
-	v2 = (uint32_t *)((char *)this + 388);
-	*v2 = *((uint32_t *)a2 + 97);
-	v2[1] = *((uint32_t *)a2 + 98);
-	v2[2] = *((uint32_t *)a2 + 99);
-	v3 = (uint32_t *)((char *)this + 400);
-	*v3 = *((uint32_t *)a2 + 100);
-	v3[1] = *((uint32_t *)a2 + 101);
-	v3[2] = *((uint32_t *)a2 + 102);
-	v4 = (uint32_t *)((char *)this + 412);
-	*v4 = *((uint32_t *)a2 + 103);
-	v4[1] = *((uint32_t *)a2 + 104);
-	v4[2] = *((uint32_t *)a2 + 105);
-	*((uint8_t *)this + 424) = *((uint8_t *)a2 + 424);
-	*((uint8_t *)this + 425) = *((uint8_t *)a2 + 425);
-	*((uint8_t *)this + 426) = *((uint8_t *)a2 + 426);
-	*((uint32_t *)this + 107) = *((uint32_t *)a2 + 107);
-	*((uint32_t *)this + 108) = *((uint32_t *)a2 + 108);
-	*((uint32_t *)this + 109) = *((uint32_t *)a2 + 109);
-	*((uint32_t *)this + 110) = *((uint32_t *)a2 + 110);
-	*((uint32_t *)this + 111) = *((uint32_t *)a2 + 111);
-	*((uint32_t *)this + 112) = *((uint32_t *)a2 + 112);
-	*((uint32_t *)this + 113) = *((uint32_t *)a2 + 113);
-	*((uint32_t *)this + 114) = *((uint32_t *)a2 + 114);
-	*((uint32_t *)this + 115) = *((uint32_t *)a2 + 115);
-	*((uint32_t *)this + 116) = *((uint32_t *)a2 + 116);
-	*((uint32_t *)this + 117) = *((uint32_t *)a2 + 117);
-	*((uint32_t *)this + 118) = *((uint32_t *)a2 + 118);
-	*((uint32_t *)this + 119) = *((uint32_t *)a2 + 119);
-	*((uint32_t *)this + 120) = *((uint32_t *)a2 + 120);
-	*((uint32_t *)this + 121) = *((uint32_t *)a2 + 121);
+	FilterMode = FilterMode;
+	Rows = Rows;
+	Columns = Columns;
+	Flag2 = Flag2;
+	TailLength = TailLength;
+	Time = Time;
+	R1 = R1;
+	G1 = G1;
+	B1 = B1;
+	R2 = R2;
+	G2 = G2;
+	B2 = B2;
+	R3 = R3;
+	G3 = G3;
+	B3 = B3;
+	Alpha1 = Alpha1;
+	A2 = A2;
+	A3 = A3;
+	ScalingX = ScalingX;
+	SY = SY;
+	SZ = SZ;
+	LifeSpanUVAnim1 = LifeSpanUVAnim1;
+	L2 = L2;
+	L3 = L3;
+	DecayUVAnim1 = DecayUVAnim1;
+	D2 = D2;
+	D3 = D3;
+	TailUVAnim1 = TailUVAnim1;
+	T2 = T2;
+	T3 = T3;
+	TailDecayUVAnim1 = TailDecayUVAnim1;
+	TD2 = TD2;
+	TD3 = TD3;
 	//MDLKEYTRACK<MDLALPHAKEYFRAME>::MDLKEYTRACK((char *)this + 488, (char *)a2 + 488);
-	*((uint32_t *)this + 128) = *((uint32_t *)a2 + 128);
-	*((uint32_t *)this + 129) = *((uint32_t *)a2 + 129);
-	*((uint32_t *)this + 130) = *((uint32_t *)a2 + 130);
-	result = *((uint32_t *)a2 + 131);
-	*((uint32_t *)this + 131) = result;
+	TextureID = TextureID;
+	Squirt = Squirt;
+	PriorityPlane = PriorityPlane;
+	ReplaceableID = ReplaceableID;
 }
 MDLPARTICLEEMITTER2::~MDLPARTICLEEMITTER2()
 {
-	/*MDLKEYTRACK<MDLALPHAKEYFRAME>::~MDLKEYTRACK((char *)this + 488);
-	MDLKEYTRACK<MDLFLOATPROPKEYFRAME>::~MDLKEYTRACK((char *)this + 340);
-	MDLKEYTRACK<MDLFLOATPROPKEYFRAME>::~MDLKEYTRACK((char *)this + 312);
-	MDLKEYTRACK<MDLFLOATPROPKEYFRAME>::~MDLKEYTRACK((char *)this + 284);
-	MDLKEYTRACK<MDLFLOATPROPKEYFRAME>::~MDLKEYTRACK((char *)this + 252);
-	MDLKEYTRACK<MDLFLOATPROPKEYFRAME>::~MDLKEYTRACK((char *)this + 224);
-	MDLKEYTRACK<MDLFLOATPROPKEYFRAME>::~MDLKEYTRACK((char *)this + 196);
-	MDLKEYTRACK<MDLFLOATPROPKEYFRAME>::~MDLKEYTRACK((char *)this + 168);
-	MDLGENOBJECT::~MDLGENOBJECT(this);*/
 }

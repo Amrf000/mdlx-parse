@@ -1,32 +1,31 @@
 #include "MDLPARTICLEEMITTER.h"
 
-MDLPARTICLEEMITTER::MDLPARTICLEEMITTER()
+MDLPARTICLEEMITTER::MDLPARTICLEEMITTER():
+	OBJ(0x1000u),
+	KGTR(2),
+	KGRT(2),
+	KGSC1(2),
+	KGSC2(2),
+	KPEV(2)
 {
-	//MDLGENOBJECT::MDLGENOBJECT(this, 0x1000u);
-	//MDLKEYTRACK<MDLFLOATPROPKEYFRAME>::MDLKEYTRACK((char *)this + 164, 2);
-	*((uint32_t *)this + 47) = 0;
-	//MDLKEYTRACK<MDLFLOATPROPKEYFRAME>::MDLKEYTRACK((char *)this + 192, 2);
-	*((uint32_t *)this + 54) = 0;
-	//MDLKEYTRACK<MDLFLOATPROPKEYFRAME>::MDLKEYTRACK((char *)this + 220, 2);
-	*((uint32_t *)this + 61) = 0;
-	//MDLKEYTRACK<MDLFLOATPROPKEYFRAME>::MDLKEYTRACK((char *)this + 248, 2);
-	*((uint32_t *)this + 68) = 0;
-	//MDLPARTICLE::MDLPARTICLE((MDLPARTICLEEMITTER *)((char *)this + 276));
-	//MDLKEYTRACK<MDLALPHAKEYFRAME>::MDLKEYTRACK((char *)this + 592, 2);
+	EmissionRate = 0;
+	Gravity = 0;
+	Longitude = 0;
+	Latitidue = 0;
 }
-MDLPARTICLEEMITTER::MDLPARTICLEEMITTER(const MDLPARTICLEEMITTER& that)
+MDLPARTICLEEMITTER::MDLPARTICLEEMITTER(const MDLPARTICLEEMITTER& that):
+	OBJ(that.OBJ),
+	KGTR(2),
+	KGRT(2),
+	KGSC1(2),
+	KGSC2(2),
+	PATI(that.PATI),
+	KPEV(2)
 {
-	//MDLGENOBJECT::MDLGENOBJECT(this, a2);
-	//MDLKEYTRACK<MDLFLOATPROPKEYFRAME>::MDLKEYTRACK((char *)this + 164, (char *)a2 + 164);
-	*((uint32_t *)this + 47) = *((uint32_t *)a2 + 47);
-	//MDLKEYTRACK<MDLFLOATPROPKEYFRAME>::MDLKEYTRACK((char *)this + 192, (char *)a2 + 192);
-	*((uint32_t *)this + 54) = *((uint32_t *)a2 + 54);
-	//MDLKEYTRACK<MDLFLOATPROPKEYFRAME>::MDLKEYTRACK((char *)this + 220, (char *)a2 + 220);
-	*((uint32_t *)this + 61) = *((uint32_t *)a2 + 61);
-	//MDLKEYTRACK<MDLFLOATPROPKEYFRAME>::MDLKEYTRACK((char *)this + 248, (char *)a2 + 248);
-	*((uint32_t *)this + 68) = *((uint32_t *)a2 + 68);
-	///MDLPARTICLE::MDLPARTICLE((MDLPARTICLEEMITTER *)((char *)this + 276), (const MDLPARTICLEEMITTER *)((char *)a2 + 276));
-	//MDLKEYTRACK<MDLALPHAKEYFRAME>::MDLKEYTRACK((char *)this + 592, (char *)a2 + 592);
+	EmissionRate = that.EmissionRate;
+	Gravity = that.Gravity;
+	Longitude = that.Longitude;
+	Latitidue = that.Latitidue;
 }
 MDLPARTICLEEMITTER::~MDLPARTICLEEMITTER()
 {
