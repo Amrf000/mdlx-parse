@@ -1,17 +1,12 @@
 #include "CMdlBounds.h"
 
-CMdlBounds::CMdlBounds()
+CMdlBounds::CMdlBounds():
+	BoundsRadius(0),
+	MinExtx(0),
+	MinExty(0),
+	MinExtz(0),
+	MaxExtx(0),
+	MaxExty(0),
+	MaxExtz(0)
 {
-  CMdlBounds *result; // eax
-  uint32_t *v2; // ecx
-
-  result = this;
-  *(uint32_t *)this = 0;
-  *((uint32_t *)this + 1) = 0;
-  *((uint32_t *)this + 2) = 0;
-  v2 = (uint32_t *)((char *)this + 12);
-  *v2 = 0;
-  v2[1] = 0;
-  v2[2] = 0;
-  *((uint32_t *)this + 6) = 0;
 }

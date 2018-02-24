@@ -11,13 +11,14 @@ BONE						// [Bone]
 		long 	GeosetAnimID;
 	} bones[nbons];
 */
-class MDLBONESECTION:public MDLGENOBJECT 
+class MDLBONESECTION  
 {
 public:
 	MDLBONESECTION();
-	MDLBONESECTION(const MDLBONESECTION *a2);
+	MDLBONESECTION(const MDLBONESECTION& that);
 	~MDLBONESECTION();
 public:
+	MDLGENOBJECT OBJ;
 	uint32_t GeosetID;
 	uint32_t GeosetAnimID;
 };

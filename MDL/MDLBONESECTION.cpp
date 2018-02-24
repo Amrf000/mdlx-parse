@@ -1,23 +1,17 @@
 #include "MDLBONESECTION.h"
 
-MDLBONESECTION::MDLBONESECTION()
+MDLBONESECTION::MDLBONESECTION():
+	OBJ(0x100u)
 {
-	int result; // eax
-
-	//result = MDLGENOBJECT::MDLGENOBJECT(this, 0x100u);
-	*((uint32_t *)this + 41) = 0;
-	*((uint32_t *)this + 42) = 0;
+	GeosetID = 0;
+	GeosetAnimID = 0;
 }
-MDLBONESECTION::MDLBONESECTION(const MDLBONESECTION *a2)
+MDLBONESECTION::MDLBONESECTION(const MDLBONESECTION& that):
+	OBJ(that.OBJ)
 {
-	int result; // eax
-
-	//MDLGENOBJECT::MDLGENOBJECT(this, a2);
-	*((uint32_t *)this + 41) = *((uint32_t *)a2 + 41);
-	result = *((uint32_t *)a2 + 42);
-	*((uint32_t *)this + 42) = result;
+	GeosetID = that.GeosetID;
+	GeosetAnimID = that.GeosetAnimID;
 }
 MDLBONESECTION::~MDLBONESECTION()
 {
-	//MDLGENOBJECT::~MDLGENOBJECT(this);
 }

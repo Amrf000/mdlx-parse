@@ -5,5 +5,8 @@
 class MDLATTENKEYFRAME {
 public:
 	MDLATTENKEYFRAME();
+	MDLATTENKEYFRAME(const MDLATTENKEYFRAME& that);
+public:
+	float x, y, z, w;
 };
 #endif

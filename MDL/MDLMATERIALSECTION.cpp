@@ -2,7 +2,6 @@
 
 MDLMATERIALSECTION::MDLMATERIALSECTION()
 {
-	//result = TSStaticDynamicArray<MDLTEXLAYER, 2>::TSStaticDynamicArray(this);
 	PriorityPlane = 0;
 	RenderMode = 0;
 }
