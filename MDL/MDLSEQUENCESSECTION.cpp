@@ -1,32 +1,42 @@
 #include "MDLSEQUENCESSECTION.h"
 
-MDLSEQUENCESSECTION::MDLSEQUENCESSECTION():
-	IntStart(0),
-	IntEnd(0),
-	MoveSpeed(0),
-	NoLooping(0),
-	Rarity(0),
-	x(0)
+MDLSEQUENCESSECTION::MDLSEQUENCESSECTION()
 {
-	Name[0] = 0;
+
 }
 MDLSEQUENCESSECTION::MDLSEQUENCESSECTION( const MDLSEQUENCESSECTION& that)
 {
-	IntStart = that.IntStart;
-	IntEnd = that.IntEnd;
-	MoveSpeed = that.MoveSpeed;
-	NoLooping = that.NoLooping;
-	Rarity = that.Rarity;
-	x = that.x;
-	bound.BoundsRadius = that.bound.BoundsRadius;
-	bound.MaxExtx = that.bound.MaxExtx;
-	bound.MaxExty = that.bound.MaxExty;
-	bound.MaxExtz = that.bound.MaxExtz;
-	bound.MinExtx = that.bound.MinExtx;
-	bound.MinExty = that.bound.MinExty;
-	bound.MinExtz = that.bound.MinExtz;
-	//*((uint32_t *)this + 12) = *((uint32_t *)a2 + 12);
-	//*((uint32_t *)this + 13) = *((uint32_t *)a2 + 13);
-	//*((uint32_t *)this + 14) = *((uint32_t *)a2 + 14);
-	memcpy(Name, that.Name, 80);
+
+}
+
+bool MDLSEQUENCESSECTION::parsemdl(const std::string& node)
+{
+	return true;
+}
+
+bool MDLSEQUENCESSECTION::parse(char*& binary,int& rest)
+{
+	memcpy(mdx.Key, binary, 4);
+	memcpy(&mdx.nbytes, binary + 4, 4);
+	rest -= (8+mdx.nbytes);
+	if(rest>0)
+	{
+		int nseqs = mdx.nbytes/sizeof(MDLSEQUENCESSECTION::seq);
+		mdx.sequences.resize(nseqs);
+		memcpy(&mdx.sequences[0],binary + 8,mdx.nbytes);
+		binary += (8+mdx.nbytes);	
+		return true;
+	}else{
+		return false;
+	}
+}
+
+bool MDLSEQUENCESSECTION::tomdl(std::ostringstream& oss)
+{
+	return true;
+}
+
+bool MDLSEQUENCESSECTION::tomdx(char* dest, int* len)
+{
+	return true;
 }

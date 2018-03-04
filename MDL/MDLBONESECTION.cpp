@@ -1,17 +1,19 @@
 #include "MDLBONESECTION.h"
 
-MDLBONESECTION::MDLBONESECTION():
-	OBJ(0x100u)
+MDLBONESECTION::MDLBONESECTION()
 {
-	GeosetID = 0;
-	GeosetAnimID = 0;
 }
-MDLBONESECTION::MDLBONESECTION(const MDLBONESECTION& that):
-	OBJ(that.OBJ)
+MDLBONESECTION::MDLBONESECTION(const MDLBONESECTION& that)
 {
-	GeosetID = that.GeosetID;
-	GeosetAnimID = that.GeosetAnimID;
+	mdx.nbytes = that.mdx.nbytes;
+	mdx.bones.assign(that.mdx.bones.begin(),that.mdx.bones.end());
 }
 MDLBONESECTION::~MDLBONESECTION()
 {
+}
+
+bool MDLBONESECTION::parse(char*& binary,int& rest)
+{
+	
+	return true;
 }

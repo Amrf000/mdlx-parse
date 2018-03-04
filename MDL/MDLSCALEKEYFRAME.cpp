@@ -2,28 +2,24 @@
 
 MDLSCALEKEYFRAME::MDLSCALEKEYFRAME()
 {
-	Frame = 0;
-	x = 0.0;
-	y = 0.0;
-	z = 0.0;
-	InTanx = 0.0;
-	InTany = 0.0;
-	InTanz = 0.0;
-	OutTanx = 1.0;
-	OutTany = 1.0;
-	OutTanz = 1.0;
 }
 
 MDLSCALEKEYFRAME::MDLSCALEKEYFRAME(const MDLSCALEKEYFRAME& that)
 {
-	Frame = that.Frame;
-	x = that.x;
-	y = that.y;
-	z = that.z;
-	InTanx = that.InTanx;
-	InTany = that.InTany;
-	InTanz = that.InTanz;
-	OutTanx = that.OutTanx;
-	OutTany = that.OutTany;
-	OutTanz = that.OutTanz;
+	mdx.Frame = that.mdx.Frame;
+	mdx.x = that.mdx.x;
+	mdx.y = that.mdx.y;
+	mdx.z = that.mdx.z;
+	mdx.InTanx = that.mdx.InTanx;
+	mdx.InTany = that.mdx.InTany;
+	mdx.InTanz = that.mdx.InTanz;
+	mdx.OutTanx = that.mdx.OutTanx;
+	mdx.OutTany = that.mdx.OutTany;
+	mdx.OutTanz = that.mdx.OutTanz;
+}
+
+bool MDLSCALEKEYFRAME::parse(char*& binary,int& rest)
+{
+	
+	return true;
 }

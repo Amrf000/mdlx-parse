@@ -10,3 +10,16 @@ CMdlBounds::CMdlBounds():
 	MaxExtz(0)
 {
 }
+
+bool CMdlBounds::parse(char*& binary,int& rest)
+{
+	rest -= sizeof(CMdlBounds);
+	if(rest>=0)
+	{
+		memcpy(&BoundsRadius, binary,sizeof(CMdlBounds));
+		binary += sizeof(CMdlBounds);
+		return true;
+	}else{
+		return false;
+	}
+}

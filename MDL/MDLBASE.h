@@ -2,7 +2,7 @@
 #define _MDLBASE_H
 #include <stdint.h>
 #include <vector>
-#include "../core/math3d.h"
+//#include "../core/math3d.h"
 
 #include "MDLHEADERSECTION.h"
 #include "MDLMODELSECTION.h"

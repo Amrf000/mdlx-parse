@@ -437,12 +437,12 @@ A.3 | MDX Format Hierarchy
    [VERS]--|--Version			           |
    [MODL]--|--Model			   [ATCH]--|--Attachment
    [SEQS]--|--Sequences			[KATV]__/  |  \__Visibility
-   [GLBS]--|--GlobalSequences		           |
+   [GLBS]--|--GlobalSequences		       |
    [MTLS]--|--Material			   [PIVT]--|--PivotPoints
 [LAYS]--|  |  |--Layer			   [PREM]--|--ParticleEmitter
 [KMTA]--|  |  |--Alpha			[KGTR]--|  |  |--Translation
 [KMTF]__/  |  \__TextureID		[KGRT]--|  |  |--Rotation
-           |				[KGSC]--|  |  |--Scaling
+           |				    [KGSC]--|  |  |--Scaling
    [TEXS]--|--Textures			[KPEV]__/  |  \__Visibility
    [TXAN]--|--TextureAnims		           |
 [KTAT]--|  |  |--Translation		   [PRE2]--|--ParticleEmitter2

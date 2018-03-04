@@ -1,17 +1,19 @@
 #include "MDLTEXANIMSECTION.h"
 
-MDLTEXANIMSECTION::MDLTEXANIMSECTION():
-	KTAT(2),
-	KTAR(2),
-	KTAS(2)
+MDLTEXANIMSECTION::MDLTEXANIMSECTION()
 {
 }
-MDLTEXANIMSECTION::MDLTEXANIMSECTION(const MDLTEXANIMSECTION& that):
-	KTAT(that.KTAT),
-	KTAR(that.KTAR),
-	KTAS(that.KTAS)
+MDLTEXANIMSECTION::MDLTEXANIMSECTION(const MDLTEXANIMSECTION& that)
 {
+	mdx.nbytes = that.mdx.nbytes;
+	mdx.txanims.assign(that.mdx.txanims.begin(),that.mdx.txanims.end());
 }
 MDLTEXANIMSECTION::~MDLTEXANIMSECTION()
 {
+}
+
+bool MDLTEXANIMSECTION::parse(char*& binary,int& rest)
+{
+	
+	return true;
 }

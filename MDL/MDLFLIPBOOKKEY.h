@@ -6,6 +6,6 @@ public:
 	MDLFLIPBOOKKEY();
 	MDLFLIPBOOKKEY(const MDLFLIPBOOKKEY& that);
 public:
-	long x, y;
+	int x, y;
 };
 #endif

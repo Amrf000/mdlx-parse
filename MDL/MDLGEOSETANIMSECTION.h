@@ -17,34 +17,78 @@ GEOA						// [GeosetAnim]
 		(KGAC)
 	} geosanims[ngsan];
 */
-
-/*
-KMTA						// [Alpha]
-	long	nunks;
-	long	LineType;			(0:don't interp;1:linear;2:hermite;3:bezier)
-	long	GlobalSeqId;			// 0xFFFFFFFF if none
-	struct {
-		long	Frame;
-		float	State;			(0 or 1)
-		if (LineType > 1) {
-			float	InTan;
-			float	OutTan;
-		}
-	} alpha[nunks];
-*/
 class MDLGEOSETANIMSECTION
 {
 public:
 	MDLGEOSETANIMSECTION();
 	MDLGEOSETANIMSECTION(const MDLGEOSETANIMSECTION& that);
 	~MDLGEOSETANIMSECTION();
+	
+	bool parse(char*& binary,int& rest);
 public:
-	MDLKEYTRACK<MDLALPHAKEYFRAME> KGAO1;
-	float	staticAlpha;
-	MDLKEYTRACK<MDLALPHAKEYFRAME> KGAO2;
-	uint32_t	ColorAnimation;
-	MDLKEYTRACK<MDLCOLORKEYFRAME> KGAC;
-	float	ColorR, ColorG, ColorB;
-	uint32_t	GeosetID;
+	class mdl_
+	{
+	    public:
+		    friend std::ostream& operator<<(std::ostream& os, const mdl_& md)
+			{
+				return os;
+			}	
+	};
+	mdl_ mdl;
+	
+	class mdx_
+	{
+		public:
+			class geosanim
+			{
+				public:
+					geosanim(){
+					}
+					geosanim(const geosanim& that)
+					{
+						nbytesi = that.nbytesi;
+						staticAlpha = that.staticAlpha;
+						ColorAnimation = that.ColorAnimation;
+						ColorR = that.ColorR; ColorG = that.ColorG; ColorB = that.ColorB;
+						GeosetID = that.GeosetID;
+						KGAO = that.KGAO;
+						KGAC = that.KGAC;
+					}
+					int	nbytesi;
+					float	staticAlpha;
+					int	ColorAnimation;
+					float	ColorR, ColorG, ColorB;
+					int	GeosetID;
+					MDLKEYTRACK<MDLALPHAKEYFRAME> KGAO;
+					MDLKEYTRACK<MDLCOLORKEYFRAME> KGAC;
+					friend std::ostream& operator<<(std::ostream& os, const geosanim& md)
+					{
+						return os<<"nbytesi"<<md.nbytesi<<std::endl
+						         <<"staticAlpha"<<md.staticAlpha<<std::endl
+						         <<"ColorAnimation"<<md.ColorAnimation<<std::endl
+						         <<"ColorR"<<md.ColorR<<"ColorG"<<md.ColorG<<"ColorB"<<md.ColorB<<std::endl
+						         <<"GeosetID"<<md.GeosetID<<std::endl
+						         <<md.KGAO
+						         <<md.KGAC;    
+					}
+			};
+			int	nbytes;
+			std::vector<geosanim> geosanims;
+		    friend std::ostream& operator<<(std::ostream& os, const mdx_& md)
+			{
+				os<<"nbytes"<<md.nbytes<<std::endl;
+				for(int i=0;i<md.geosanims.size();++i)
+				{
+					os<<md.geosanims[i];
+				}
+				return os;
+			}		
+	};
+	mdx_ mdx;
+	friend std::ostream& operator<<(std::ostream& os, const MDLGEOSETANIMSECTION& md)
+	{
+		return os<<md.mdl<<std::endl
+		        <<md.mdx<<std::endl;
+	}
 };
 #endif
