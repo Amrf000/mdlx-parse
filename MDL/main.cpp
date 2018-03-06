@@ -9,6 +9,11 @@
 #include "MDLSEQUENCESSECTION.h"
 #include "MDLGLOBALSEQSECTION.h"
 #include "MDLMATERIALSECTION.h"
+#include "MDLTEXTURESECTION.h"
+#include "MDLTEXANIMSECTION.h"
+#include "MDLGEOSETSECTION.h"
+#include "MDLGEOSETANIMSECTION.h"
+#include "MDLBONESECTION.h"
 
 bool loadmdx(const std::string& fileName)
 {
@@ -39,6 +44,11 @@ bool loadmdx(const std::string& fileName)
     MDLSEQUENCESSECTION seqs;
     MDLGLOBALSEQSECTION glob;
     MDLMATERIALSECTION mats;
+    MDLTEXTURESECTION texs;
+    MDLTEXANIMSECTION texa;
+    MDLGEOSETSECTION geos;
+    MDLGEOSETANIMSECTION geoa;
+    MDLBONESECTION bone;
     
     
     char* src=buffer;
@@ -54,6 +64,17 @@ bool loadmdx(const std::string& fileName)
     std::cout << glob << std::endl;
     mats.parse(src,rest);
     std::cout << mats << std::endl;
+    texs.parse(src,rest);
+    std::cout << texs << std::endl;
+    texa.parse(src,rest);
+    std::cout << texa << std::endl;
+    geos.parse(src,rest);
+    std::cout << geos << std::endl; 
+    geoa.parse(src,rest);
+    std::cout << geoa << std::endl; 
+    bone.parse(src,rest);
+    std::cout << bone << std::endl; 
+	   
     delete[] buffer;
     buffer = NULL;
 	return true;

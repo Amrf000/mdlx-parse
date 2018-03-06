@@ -5,11 +5,11 @@
 #include <sstream>
 /*
 KMTA						// [Alpha]
-	long	nunks;
-	long	LineType;			(0:don't interp;1:linear;2:hermite;3:bezier)
-	long	GlobalSeqId;			// 0xFFFFFFFF if none
+	int	nunks;
+	int	LineType;			(0:don't interp;1:linear;2:hermite;3:bezier)
+	int	GlobalSeqId;			// 0xFFFFFFFF if none
 	struct {
-		long	Frame;
+		int	Frame;
 		float	State;			(0 or 1)
 		if (LineType > 1) {
 			float	InTan;

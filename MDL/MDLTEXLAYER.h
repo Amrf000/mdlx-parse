@@ -6,17 +6,17 @@
 #include "MDLKEYTRACK.h"
 /*
 LAYS						// [Layer} (ID may have been removed, extra bytes...)
-	long	nlays;
+	int	nlays;
 	struct {
-		long	nbytesi;
-		long	FilterMode;	(0:none;1:transparent;2:blend;3:additive;4:addalpha;5:modulate)
-		long	Shading;		//+1:unshaded;+2:SphereEnvMap;+16:twosided;
-		long	TextureID;              //  +32:unfogged;+64:NoDepthTest;+128:NoDepthSet)
-		long 	TVertexAnimId;		// 0xFFFFFFFF if none
-		long	CoordId;
+		int	nbytesi;
+		int	FilterMode;	(0:none;1:transparent;2:blend;3:additive;4:addalpha;5:modulate)
+		int	Shading;		//+1:unshaded;+2:SphereEnvMap;+16:twosided;
+		int	TextureID;              //  +32:unfogged;+64:NoDepthTest;+128:NoDepthSet)
+		int 	TVertexAnimId;		// 0xFFFFFFFF if none
+		int	CoordId;
 		float	Alpha;			(0(transparent)->1(opaque))
 		(KMTA)
-		(KMTF)				// state is long not float
+		(KMTF)				// state is int not float
 	} layers[nlays];
 */
 class MDLTEXLAYER {
@@ -129,12 +129,12 @@ public:
 				    {
 				    	return false;
 					}
-					KMTA.parse(binary,rest);
+					KMTA.parse(binary,rest,"KMTA");
 	                if(rest<0 || orest-rest>=nbytesi)
 				    {
 				    	return false;
 					}
-					KMTF.parse(binary,rest);
+					KMTF.parse(binary,rest,"KMTF");
 	                if(rest<0 || orest-rest>=nbytesi)
 				    {
 				    	return false;

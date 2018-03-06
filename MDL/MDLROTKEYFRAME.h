@@ -5,24 +5,25 @@
 #include <sstream>
 
 /*
-KGSC						// [Scaling]
+KGRT						// [Rotation]
 	long	nunks;
 	long	LineType;			(0:don't interp;1:linear;2:hermite;3:bezier)
 	long	GlobalSeqId;			// 0xFFFFFFFF if none
 	struct {
 		long	Frame;
-		float	x, y, z;
+		float	a, b, c, d;
 		if (LineType > 1) {
-			float	InTanx, InTany, InTanz;
-			float	OutTanx, OutTany, OutTanz;
+			float	InTana, InTanb, InTanc, InTand;
+			float	OutTana, OutTanb, OutTanc, OutTand;
 		}
-	} scaling[nunks];
+	} rotation[nunks];
 */
 class MDLROTKEYFRAME {
 public:
 	MDLROTKEYFRAME();
+	MDLROTKEYFRAME(const MDLROTKEYFRAME& that);
 	
-	bool parse(char*& binary,int& rest);
+	bool parse(char*& binary,int& rest,int LineType);
 public:
 	class mdl_
 	{
@@ -37,16 +38,21 @@ public:
 	class mdx_
 	{
 		public:
-			long	Frame;
-			float	x, y, z;
-			float	InTanx, InTany, InTanz;
-			float	OutTanx, OutTany, OutTanz;
+			int	Frame;
+			float	a, b, c, d;
+			float	InTana, InTanb, InTanc, InTand;
+			float	OutTana, OutTanb, OutTanc, OutTand;
+			
+			int LineType;
 		    friend std::ostream& operator<<(std::ostream& os, const mdx_& md)
 			{
-				return os<<"Frame:"<<md.Frame<<std::endl
-				         <<"x:"<<md.x<<",y:"<<md.y<<",z:"<<md.z<<std::endl
-						 <<"InTanx:"<<md.InTanx<<",InTany:"<<md.InTany<<",InTanz:"<<md.InTanz<<std::endl
-						 <<"OutTanx:"<<md.OutTanx<<",OutTany:"<<md.OutTany<<",OutTanz:"<<md.OutTanz<<std::endl;
+				os  <<"Frame:"<<md.Frame<<std::endl
+				    <<"a:"<<md.a<<",b:"<<md.b<<",c:"<<md.c<<",d:"<<md.d<<std::endl;
+				    if (md.LineType > 1) {    
+						os <<"InTanx:"<<md.InTana<<",InTany:"<<md.InTanb<<",InTanz:"<<md.InTanc<<",InTand:"<<md.InTand<<std::endl
+						   <<"OutTanx:"<<md.OutTana<<",OutTany:"<<md.OutTanb<<",OutTanz:"<<md.OutTanc<<",OutTand:"<<md.OutTand<<std::endl;
+				    }
+				return os;
 			}
 	};
     mdx_ mdx;

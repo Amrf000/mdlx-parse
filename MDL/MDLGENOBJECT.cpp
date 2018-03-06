@@ -38,5 +38,19 @@ MDLGENOBJECT& MDLGENOBJECT::operator=(const MDLGENOBJECT& that)
 
 bool MDLGENOBJECT::parse(char*& binary,int& rest)
 {
+	memcpy(&mdx.nbytesi,binary,4);
+	binary += 4; rest -= 4;
+	memcpy(mdx.Name,binary,80);
+	binary += 80; rest -= 80;	
+	memcpy(&mdx.ObjectID,binary,4);
+	binary += 4; rest -= 4;
+	memcpy(&mdx.Parent,binary,4);
+	binary += 4; rest -= 4;
+	memcpy(&mdx.Type,binary,4);
+	binary += 4; rest -= 4;
+	mdx.KGTR.parse(binary,rest,"KGTR");
+	mdx.KGRT.parse(binary,rest,"KGRT");
+	mdx.KGSC.parse(binary,rest,"KGSC");
+    mdx.KATV.parse(binary,rest,"KATV");
 	return false;
 }

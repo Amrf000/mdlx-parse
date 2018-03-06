@@ -8,7 +8,7 @@ MDLTEXLAYER::MDLTEXLAYER()//:KMTF(2)
 	TextureID = 0;
 	TVertexAnimId = -1;
 	CoordId = 0;
-	*(long*)&Alpha = 1065353216;*/
+	*(int*)&Alpha = 1065353216;*/
 }
 MDLTEXLAYER::MDLTEXLAYER( const MDLTEXLAYER& that)//:KMTA(that.KMTA), KMTF(that.KMTF)
 {

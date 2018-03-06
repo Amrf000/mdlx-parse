@@ -1,32 +1,19 @@
 #include "MDLCAMERASECTION.h"
 
-MDLCAMERASECTION::MDLCAMERASECTION():
-	KCRL(2),
-	KTTR(2),
-	BKCT(2)
+MDLCAMERASECTION::MDLCAMERASECTION()
 {
-	Name[0] = 0;
-	PosX = 0;
-	PosY = 0;
-	PosZ = 0;
-	FieldOfView = 0;
-	FarClip = 1148846080;
-	NearClip = 1090519040;
 }
-MDLCAMERASECTION::MDLCAMERASECTION(const MDLCAMERASECTION& that):
-	KCRL(that.KCRL),
-	KTTR(that.KTTR),
-	Target(that.Target),
-	BKCT(that.BKCT)
+MDLCAMERASECTION::MDLCAMERASECTION(const MDLCAMERASECTION& that)
 {
-	memcpy(Name, that.Name, 80);
-	PosX = PosX;
-	PosY = PosY;
-	PosZ = PosZ;
-	FieldOfView = FieldOfView;
-	FarClip = FarClip;
-	NearClip = NearClip;
+	 mdl = that.mdl;
+     mdx = that.mdx;
 }
 MDLCAMERASECTION::~MDLCAMERASECTION()
 {
 }
+
+bool MDLCAMERASECTION::parse(char*& binary,int& rest)
+{
+	return true;
+}
+

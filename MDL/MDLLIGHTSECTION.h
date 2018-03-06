@@ -6,11 +6,11 @@
 #include "MDLCOLORKEYFRAME.h"
 /*
 LITE						// [Light]
-	long	nbytes;
+	int	nbytes;
 	struct {
-		long	nbytesi;
+		int	nbytesi;
 		OBJ
-		long	Type			(0:Omnidirectional;1:Directional;2:Ambient)
+		int	Type			(0:Omnidirectional;1:Directional;2:Ambient)
 		float	AttStart, AttEnd;
 		float	ColR, ColG, ColB;
 		float	Intensity;

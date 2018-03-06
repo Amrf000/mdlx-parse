@@ -18,8 +18,18 @@ MDLSCALEKEYFRAME::MDLSCALEKEYFRAME(const MDLSCALEKEYFRAME& that)
 	mdx.OutTanz = that.mdx.OutTanz;
 }
 
-bool MDLSCALEKEYFRAME::parse(char*& binary,int& rest)
+bool MDLSCALEKEYFRAME::parse(char*& binary,int& rest,int LineType)
 {
-	
-	return true;
+	mdx.LineType= LineType;
+	int span=(LineType>1)?40:16;
+	rest -= span;
+	if(rest>=0)
+	{
+		memcpy(&mdx,binary,span);
+		binary += span;
+		return true;
+	}else{
+		return false;
+	}
+	return false;
 }

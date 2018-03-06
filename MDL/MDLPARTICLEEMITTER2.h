@@ -3,17 +3,18 @@
 #include <stdint.h>
 #include "MDLGENOBJECT.h"
 #include "MDLALPHAKEYFRAME.h"
-#include "MDLFLOATPROPKEYFRAME.h"
+#include "MDLCOLORKEYFRAME.h"
+
 /*
 PRE2						// [ParticleEmitter2]
-	long	nbytes;
+	int	nbytes;
 	struct {
-		long	nbytesi;
-		long	nbytesikg;		// inclusive bytecount including KGXXs
+		int	nbytesi;
+		int	nbytesikg;		// inclusive bytecount including KGXXs
 		ASCII	Name;			(0x50 bytes)
-		long	ObjectID;
-		long	Parent; 		(0xFFFFFFFF if none)
-		long	Flags;	    (bit20)	// +bit26(DontInherit Rotation)
+		int	ObjectID;
+		int	Parent; 		(0xFFFFFFFF if none)
+		int	Flags;	    (bit20)	// +bit26(DontInherit Rotation)
 		(KGTR)				// +bit23(Unshaded)	+bit10(Unfogged)
 		(KGRT)				// +bit12(XYQuad)	+bit9(LineEmitter)
 		(KGSC)				// +bit11(ModelSpace)	+bit8(SortPrimsFarZ)
@@ -25,10 +26,10 @@ PRE2						// [ParticleEmitter2]
 		float	EmissionRate;
 		float	Length;
 		float	Width;
-		long	FilterMode; 		(0:Blend;1:Additive;2:Modulate;4:AlphaKey)
-		long	Rows;
-		long 	Columns;
-		long	Flag2;			(0:Head;1:Tail;2:Both)
+		int	FilterMode; 		(0:Blend;1:Additive;2:Modulate;4:AlphaKey)
+		int	Rows;
+		int 	Columns;
+		int	Flag2;			(0:Head;1:Tail;2:Both)
 		float	TailLength;
 		float	Time;
 		struct {			// SegmentColor usually 3 segments
@@ -36,14 +37,14 @@ PRE2						// [ParticleEmitter2]
 		} color[numsegments]
 		byte	Alpha1, A2, A3;
 		float	ScalingX, SY, SZ;
-		long	LifeSpanUVAnim1, L2, L3;
-		long	DecayUVAnim1, D2, D3;
-		long	TailUVAnim1, T2, T3;
-		long	TailDecayUVAnim1, TD2, TD3;
-		long	TextureID;
-		long	Squirt; 		(1:Squirt)
-		long	PriorityPlane;
-		long	ReplaceableID;
+		int	LifeSpanUVAnim1, L2, L3;
+		int	DecayUVAnim1, D2, D3;
+		int	TailUVAnim1, T2, T3;
+		int	TailDecayUVAnim1, TD2, TD3;
+		int	TextureID;
+		int	Squirt; 		(1:Squirt)
+		int	PriorityPlane;
+		int	ReplaceableID;
 		(KP2S)
 		(KP2L)
 		(KP2E)
@@ -58,42 +59,73 @@ public:
 	MDLPARTICLEEMITTER2();
 	MDLPARTICLEEMITTER2(const MDLPARTICLEEMITTER2& that);
 	~MDLPARTICLEEMITTER2();
+	
+	bool parse(char*& binary,int& rest);
 public:
-	MDLGENOBJECT OBJ;
-	float	Speed;
-	MDLKEYTRACK<MDLFLOATPROPKEYFRAME> KGTR;
-	float	Variation;
-	MDLKEYTRACK<MDLFLOATPROPKEYFRAME> KGRT;
-	float	Latitidue;
-	MDLKEYTRACK<MDLFLOATPROPKEYFRAME> KGSC;
-	float	Gravity;
-	MDLKEYTRACK<MDLFLOATPROPKEYFRAME> KP2S;
-	float	Lifespan;
-	float	EmissionRate;
-	MDLKEYTRACK<MDLFLOATPROPKEYFRAME> KP2L;
-	float	Length;
-	MDLKEYTRACK<MDLFLOATPROPKEYFRAME> KP2E;
-	float	Width;
-	MDLKEYTRACK<MDLFLOATPROPKEYFRAME> KP2V;
-	long	FilterMode; //		(0:Blend;1:Additive;2:Modulate;4:AlphaKey)
-	long	Rows;
-	long 	Columns;
-	long	Flag2;	//		(0:Head;1:Tail;2:Both)
-	float	TailLength;
-	float	Time;
-	MDLKEYTRACK<MDLALPHAKEYFRAME> KP2N;
-	float	R1, G1, B1;
-	float	R2, G2, B2;
-	float	R3, G3, B3;
-	char	Alpha1, A2, A3;
-	float	ScalingX, SY, SZ;
-	long	LifeSpanUVAnim1, L2, L3;
-	long	DecayUVAnim1, D2, D3;
-	long	TailUVAnim1, T2, T3;
-	long	TailDecayUVAnim1, TD2, TD3;
-	long	TextureID;
-	long	Squirt;// 		(1:Squirt)
-	long	PriorityPlane;
-	long	ReplaceableID;
+	class mdl_
+	{
+	    public:
+		    friend std::ostream& operator<<(std::ostream& os, const mdl_& md)
+			{
+				return os;
+			}	
+	};
+	mdl_ mdl;
+	
+	class mdx_
+	{
+		public:
+			class  particleemitter
+			{
+				public:
+					class color
+					{
+					    public:
+					    	float	R, G, B;	
+					};
+					int	nbytesi;
+					int	nbytesikg;
+					char	Name[80];
+					int	ObjectID;
+					int	Parent; 
+					int	Flags;
+					MDLKEYTRACK<MDLCOLORKEYFRAME> KGTR;	
+					MDLKEYTRACK<MDLROTKEYFRAME> KGRT;		
+					MDLKEYTRACK<MDLCOLORKEYFRAME> KGSC;	
+					float	Speed;
+					float	Variation;
+					float	Latitidue;
+					float	Gravity;
+					float	Lifespan;
+					float	EmissionRate;
+					float	Length;
+					float	Width;
+					int	FilterMode;
+					int	Rows;
+					int 	Columns;
+					int	Flag2;
+					float	TailLength;
+					float	Time;
+					std::vector<color> colors;
+					unsigned char	Alpha1, A2, A3;
+					float	ScalingX, SY, SZ;
+					int	LifeSpanUVAnim1, L2, L3;
+					int	DecayUVAnim1, D2, D3;
+					int	TailUVAnim1, T2, T3;
+					int	TailDecayUVAnim1, TD2, TD3;
+					int	TextureID;
+					int	Squirt;
+					int	PriorityPlane;
+					int	ReplaceableID;
+					MDLKEYTRACK<MDLALPHAKEYFRAME> KP2S;
+					MDLKEYTRACK<MDLALPHAKEYFRAME> KP2L;
+					MDLKEYTRACK<MDLALPHAKEYFRAME> KP2E;
+					MDLKEYTRACK<MDLALPHAKEYFRAME> KP2V;
+					MDLKEYTRACK<MDLALPHAKEYFRAME> KP2N;
+					MDLKEYTRACK<MDLALPHAKEYFRAME> KP2W;
+			};
+	       int	nbytes;	
+		   std::vector<particleemitter> particleemitters;	
+	};
 };
 #endif

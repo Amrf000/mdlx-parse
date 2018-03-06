@@ -6,11 +6,11 @@
 
 /*
 KGSC						// [Scaling]
-	long	nunks;
-	long	LineType;			(0:don't interp;1:linear;2:hermite;3:bezier)
-	long	GlobalSeqId;			// 0xFFFFFFFF if none
+	int	nunks;
+	int	LineType;			(0:don't interp;1:linear;2:hermite;3:bezier)
+	int	GlobalSeqId;			// 0xFFFFFFFF if none
 	struct {
-		long	Frame;
+		int	Frame;
 		float	x, y, z;
 		if (LineType > 1) {
 			float	InTanx, InTany, InTanz;
@@ -23,7 +23,7 @@ public:
 	MDLTRANSKEYFRAME();
 	MDLTRANSKEYFRAME(const MDLTRANSKEYFRAME& that);
 	
-	bool parse(char*& binary,int& rest);
+	bool parse(char*& binary,int& rest,int LineType);
 public:
 	class mdl_
 	{
@@ -42,12 +42,17 @@ public:
 	        float	x, y, z;
 	        float	InTanx, InTany, InTanz;
 	        float	OutTanx, OutTany, OutTanz;
+	        
+	        int LineType;
 		    friend std::ostream& operator<<(std::ostream& os, const mdx_& md)
 			{
-				return os<<"Frame:"<<md.Frame<<std::endl
-				         <<"x:"<<md.x<<",y:"<<md.y<<",z:"<<md.z<<std::endl
-						 <<"InTanx:"<<md.InTanx<<",InTany:"<<md.InTany<<",InTanz:"<<md.InTanz<<std::endl
-						 <<"OutTanx:"<<md.OutTanx<<",OutTany:"<<md.OutTany<<",OutTanz:"<<md.OutTanz<<std::endl;
+				os<<"Frame:"<<md.Frame<<std::endl
+				  <<"x:"<<md.x<<",y:"<<md.y<<",z:"<<md.z<<std::endl;
+				        if (md.LineType > 1) {     
+						  os<<"InTanx:"<<md.InTanx<<",InTany:"<<md.InTany<<",InTanz:"<<md.InTanz<<std::endl
+						    <<"OutTanx:"<<md.OutTanx<<",OutTany:"<<md.OutTany<<",OutTanz:"<<md.OutTanz<<std::endl;
+				     	}
+				return os;
 			}
 	};
 	mdx_ mdx;

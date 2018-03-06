@@ -7,11 +7,11 @@
 #include "MDLSCALEKEYFRAME.h"
 /*
 OBJ
-	long	nbytesi;
+	int	nbytesi;
 	ASCII	Name;				(0x50 bytes)
-	long	ObjectID;
-	long	Parent;				(0:default;0xFFFFFFFF:none)
-	long	Type;				// HELP:0;BONE:256;LITE:512;EVTS:1024;ATCH:2048;CLID:8192;
+	int	ObjectID;
+	int	Parent;				(0:default;0xFFFFFFFF:none)
+	int	Type;				// HELP:0;BONE:256;LITE:512;EVTS:1024;ATCH:2048;CLID:8192;
 	(KGTR)					//   +1(DontInherit Translation) +16(BillboardedLockX)
 	(KGRT)					//   +2(DontInherit Scaling)	 +32(BillboardedLockY)
 	(KGSC)					//   +4(DontInherit Rotation)	 +64(BillboardedLockZ)

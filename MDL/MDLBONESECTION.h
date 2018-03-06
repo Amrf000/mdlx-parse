@@ -4,11 +4,11 @@
 #include "MDLGENOBJECT.h"
 /*
 BONE						// [Bone]
-	long	nbytes;
+	int	nbytes;
 	struct {
 		OBJ
-		long 	GeosetID;
-		long 	GeosetAnimID;
+		int 	GeosetID;
+		int 	GeosetAnimID;
 	} bones[nbons];
 */
 class MDLBONESECTION  
@@ -48,6 +48,14 @@ public:
 			        MDLGENOBJECT OBJ;
 					int 	GeosetID;
 					int 	GeosetAnimID;
+					bool parse(char*& binary,int& rest)
+					{
+						OBJ.parse(binary,rest);
+						memcpy(&GeosetID,binary,4);
+						binary += 4; rest -= 4;
+						memcpy(&GeosetAnimID,binary,4);
+						binary += 4; rest -= 4;					
+					}
 					friend std::ostream& operator<<(std::ostream& os, const bone& md)
 					{
 						return os<<md.OBJ
@@ -55,11 +63,13 @@ public:
 						         <<"GeosetAnimID"<<md.GeosetAnimID<<std::endl;
 					}
 			};
+			char Key[4];//BONE
 			int	nbytes;
 			std::vector<bone> bones;
 		    friend std::ostream& operator<<(std::ostream& os, const mdx_& md)
 			{
-				os<<"nbytes"<<md.nbytes<<std::endl;
+				os<<"Key"<<md.Key[0]<<md.Key[1]<<md.Key[2]<<md.Key[3]<<std::endl
+				  <<"nbytes"<<md.nbytes<<std::endl;
 				for(int i=0;i<md.bones.size();++i)
 				{
 					os<<md.bones[i];

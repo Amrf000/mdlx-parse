@@ -5,11 +5,11 @@
 #include "MDLTEXLAYER.h"
 /*
 MTLS						// [Materials]
-	long	nbytes;
+	int	nbytes;
 	struct {
-		long	nbytesi;
-		long	PriorityPlane;
-		long	RenderMode;		(+1:ConstantColor;+16:SortPrimsFarZ;+32:FullResolution)
+		int	nbytesi;
+		int	PriorityPlane;
+		int	RenderMode;		(+1:ConstantColor;+16:SortPrimsFarZ;+32:FullResolution)
 		LAYS
 	} materials[nmtls];
 */

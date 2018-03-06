@@ -3,13 +3,13 @@
 #include <stdint.h>
 #include "MDLKEYTRACK.h"
 #include "MDLTRANSKEYFRAME.h"
-#include "MDLROTKEYFRAME.h"
+#include "MDLCOLORKEYFRAME.h"
 #include "MDLSCALEKEYFRAME.h"
 /*
 TXAN						// [Texture Animations]
-	long 	nbytes;
+	int 	nbytes;
 	struct {
-		long	nbytesi;
+		int	nbytesi;
 		(KTAT)				// Might be optional
 		(KTAR)
 		(KTAS)
@@ -52,7 +52,7 @@ public:
 					}
 					int	nbytesi;
 				    MDLKEYTRACK<MDLTRANSKEYFRAME>     KTAT;
-					MDLKEYTRACK<MDLROTKEYFRAME>       KTAR;
+					MDLKEYTRACK<MDLCOLORKEYFRAME>       KTAR;
 					MDLKEYTRACK<MDLSCALEKEYFRAME>     KTAS;	
 					friend std::ostream& operator<<(std::ostream& os, const txanim& md)
 					{
@@ -61,12 +61,33 @@ public:
 								 <<md.KTAR
 								 <<md.KTAS;
 					}
-			};	
+					bool parse(char*& binary,int& rest)
+					{
+						memcpy(&nbytesi,binary,4);
+						binary += 4; rest -= 4;
+						KTAT.parse(binary,rest,"KTAT");
+						KTAR.parse(binary,rest,"KTAR");
+						KTAS.parse(binary,rest,"KTAS");
+						return true;
+					}
+			};
+			mdx_()
+			{
+				
+			}
+			mdx_(const mdx_& that)
+			{
+				memcpy(Key,that.Key,4);
+				nbytes = that.nbytes;
+				txanims.assign(that.txanims.begin(),that.txanims.end());
+			}
+			char Key[4];//TXAN
 			int 	nbytes;
 			std::vector<txanim> txanims;
 		    friend std::ostream& operator<<(std::ostream& os, const mdx_& md)
 			{
-				os<<"nbytes:"<<md.nbytes<<std::endl;
+				os<<"Key"<<md.Key[0]<<md.Key[1]<<md.Key[2]<<md.Key[3]<<std::endl
+				  <<"nbytes:"<<md.nbytes<<std::endl;
 				for(int i=0;i<md.txanims.size();++i)
 				{
 					os<<md.txanims[i];

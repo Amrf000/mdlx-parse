@@ -24,10 +24,10 @@ public:
 		mdx.tunks.assgin(that.mdx.tunks.begin(),that.mdx.tunks.end());
 	}
 
-    bool parse(char*& binary,int& rest)
+    bool parse(char*& binary,int& rest,const char* Key)
     {
     	memcpy(mdx.Key,binary, 4);
-    	if('K' != mdx.Key[0])
+    	if(strncmp(Key,mdx.Key,4))
     	{
     		return false;
 		}

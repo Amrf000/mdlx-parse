@@ -5,8 +5,8 @@
 #include <sstream>
 /*
 VERS						// [Version]
-	long	nbytes;
-	long	Version; 			// Currently 0x20030000 (800)
+	int	nbytes;
+	int	Version; 			// Currently 0x20030000 (800)
 */
 class MDLHEADERSECTION{
 public:

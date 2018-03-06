@@ -5,17 +5,16 @@
 #include "MDLGENOBJECT.h"
 #include "MDLCOLORKEYFRAME.h"
 #include "MDLALPHAKEYFRAME.h"
-#include "MDLFLOATPROPKEYFRAME.h"
 /*
 RIBB
-	long	nbytes;
+	int	nbytes;
 	struct {
-		long	nbytesi;
-		long	nbytesikg;		// inclusive bytecount including KGXXs
+		int	nbytesi;
+		int	nbytesikg;		// inclusive bytecount including KGXXs
 		ASCII	Name;			(0x50 bytes)
-		long	ObjectID;
-		long	Parent; 		(0xFFFFFFFF if none)
-		long	Flags;			(0x00400000)
+		int	ObjectID;
+		int	Parent; 		(0xFFFFFFFF if none)
+		int	Flags;			(0x00400000)
 		(KGTR)
 		(KGRT)
 		(KGSC)
@@ -24,11 +23,11 @@ RIBB
 		float	Alpha;
 		float	ColorR, ColorG, ColorB;
 		float	LifeSpan;
-		long	???;			(0)
-		long	EmissionRate;
-		long	Rows;
-		long	Columns;
-		long	MaterialID;
+		int	???;			(0)
+		int	EmissionRate;
+		int	Rows;
+		int	Columns;
+		int	MaterialID;
 		float	Gravity;
 		(KRVS)
 		(KRHA)
@@ -41,24 +40,52 @@ public:
 	MDLRIBBONEMITTER();
 	MDLRIBBONEMITTER(const MDLRIBBONEMITTER& that);
 	~MDLRIBBONEMITTER();
+	
+	bool parse(char*& binary,int& rest);
 public:
-	MDLGENOBJECT OBJ;
-	float	HeightAbove;
-	MDLKEYTRACK<MDLFLOATPROPKEYFRAME> KGTR;
-	float	HeightBelow;
-	MDLKEYTRACK<MDLFLOATPROPKEYFRAME> KGRT;
-	float	Alpha;
-	MDLKEYTRACK<MDLFLOATPROPKEYFRAME> KGSC;
-	float	ColorR, ColorG, ColorB;
-	MDLKEYTRACK<MDLCOLORKEYFRAME>  KRVS;
-	float	LifeSpan;
-	long    Rsv ;//			(0)
-	long	EmissionRate;
-	long	Rows;
-	long	Columns;
-	long	MaterialID;
-	MDLINTTRACK KRHB;
-	MDLKEYTRACK<MDLALPHAKEYFRAME> KRHA;
-	float	Gravity;	
+	class mdl_
+	{
+	    public:
+		    friend std::ostream& operator<<(std::ostream& os, const mdl_& md)
+			{
+				return os;
+			}	
+	};
+	mdl_ mdl;
+	
+	class mdx_
+	{
+		public:
+		    class ribb
+			{
+		    	public:
+					int	nbytesi;
+					int	nbytesikg;
+					char	Name[80];	
+					int	ObjectID;
+					int	Parent; 
+					int	Flags;	
+					MDLKEYTRACK<MDLCOLORKEYFRAME> KGTR;
+					MDLKEYTRACK<MDLROTKEYFRAME> KGRT;
+					MDLKEYTRACK<MDLCOLORKEYFRAME> KGSC;
+					float	HeightAbove;
+					float	HeightBelow;
+					float	Alpha;
+					float	ColorR, ColorG, ColorB;
+					float	LifeSpan;
+					int	spare;
+					int	EmissionRate;
+					int	Rows;
+					int	Columns;
+					int	MaterialID;
+					float	Gravity;
+					MDLKEYTRACK<MDLALPHAKEYFRAME> KRVS;
+					MDLKEYTRACK<MDLALPHAKEYFRAME> KRHA;
+					MDLKEYTRACK<MDLALPHAKEYFRAME> KRHB;
+			};
+			int nbytes;
+	        std::vector<ribb> ribbs;
+	};
+	mdx_ mdx;	
 };
 #endif

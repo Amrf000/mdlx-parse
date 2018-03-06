@@ -4,12 +4,6 @@
 #include "MDLKEYTRACK.h"
 #include "MDLINTKEY.h"
 
-class MDLINTTRACK {
-public:
-	MDLINTTRACK();
-	MDLINTTRACK(const MDLINTTRACK& that);
-	~MDLINTTRACK();
-public:
-	MDLKEYTRACK<MDLINTKEY> val;
-};
+typedef MDLKEYTRACK<MDLINTKEY> MDLINTTRACK;
+
 #endif

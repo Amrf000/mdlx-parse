@@ -2,10 +2,15 @@
 
 MDLEVENTKEY::MDLEVENTKEY()
 {
-	val = 0;
+
 }
 
 MDLEVENTKEY::MDLEVENTKEY(const MDLEVENTKEY& that) 
 {
-	val = that.val;
+
+}
+
+bool MDLEVENTKEY::parse(char*& binary,int& rest)
+{
+	return true;
 }

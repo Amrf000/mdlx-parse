@@ -7,8 +7,8 @@
 
 /*
 GLBS						// [GlobalSequences]
-	long	nbytes;
-	long	durations[ndurs];		// ndurs = nbytes/4;
+	int	nbytes;
+	int	durations[ndurs];		// ndurs = nbytes/4;
 */
 class MDLGLOBALSEQSECTION {
 public:

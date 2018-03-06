@@ -1,19 +1,20 @@
 #include "MDLTARGETSECTION.h"
 
-MDLTARGETSECTION::MDLTARGETSECTION():
-	KCTR(2)
+MDLTARGETSECTION::MDLTARGETSECTION()
 {
-	x = 0;
-	y = 0;
-	z = 0;
 }
-MDLTARGETSECTION::MDLTARGETSECTION( const MDLTARGETSECTION& that):
-	KCTR(that.KCTR)
+
+MDLTARGETSECTION::MDLTARGETSECTION( const MDLTARGETSECTION& that)
 {
-	x = that.x;
-	y = that.y;
-	z = that.z;
+	mdx = that.mdx;
+	mdl = that.mdl;
 }
+
 MDLTARGETSECTION::~MDLTARGETSECTION()
 {
+}
+
+bool MDLTARGETSECTION::parse(char*& binary,int& rest)
+{
+	return true;	
 }
