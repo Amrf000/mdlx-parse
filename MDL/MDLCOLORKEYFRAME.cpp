@@ -15,6 +15,8 @@ MDLCOLORKEYFRAME::MDLCOLORKEYFRAME(const MDLCOLORKEYFRAME& that)
 	mdx.OutTanx = that.mdx.OutTanx;
 	mdx.OutTany = that.mdx.OutTany;
 	mdx.OutTanz = that.mdx.OutTanz;
+	
+	mdx.LineType = that.mdx.LineType;
 }
 
 bool MDLCOLORKEYFRAME::parse(char*& binary,int& rest,int LineType)

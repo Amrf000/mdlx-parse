@@ -103,23 +103,37 @@ public:
 						}st2;
 						float	BoundsRadius;
 					}un;
+					bool parse(char*& binary,int& rest)
+					{
+						OBJ.parse(binary,rest);
+						memcpy(&shape,binary,4);
+						binary += 4; rest -= 4;						
+						memcpy(&x,binary,4*3);
+						binary += 4*3; rest -= 4*3;
+						memcpy(&un,binary,4*3);
+						binary += 4*3; rest -= 4*3;							
+					}
+					
 			};
 			mdx_(){
 			}
 			mdx_(const mdx_& that)
 			{
+				memcpy(Key,that.Key,4);
 				nbytes = that.nbytes;
 				collisionshape.assign(that.collisionshape.begin(),that.collisionshape.end());
 			}
 		    friend std::ostream& operator<<(std::ostream& os, const mdx_& md)
 			{
-				os<<"nbytes"<<md.nbytes<<std::endl;
+				os <<"Key"<<md.Key[0]<<md.Key[1]<<md.Key[2]<<md.Key[3]<<std::endl
+				   <<"nbytes"<<md.nbytes<<std::endl;
 				for(int i=0;i<md.collisionshape.size();++i)
 				{
 					os<<md.collisionshape[i];
 				}
 				return os;
-			}	
+			}
+			char Key[4];//CLID
 			int	nbytes;
 			std::vector<collision> collisionshape;
 	};

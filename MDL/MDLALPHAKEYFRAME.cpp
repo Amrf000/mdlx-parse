@@ -15,6 +15,8 @@ MDLALPHAKEYFRAME::MDLALPHAKEYFRAME(const MDLALPHAKEYFRAME& that)
 	mdx.State = that.mdx.State;
 	mdx.InTan = that.mdx.InTan;
 	mdx.OutTan = that.mdx.OutTan;
+	
+	mdx.LineType= that.mdx.LineType;
 }
 
 bool MDLALPHAKEYFRAME::parse(char*& binary,int& rest,int LineType)

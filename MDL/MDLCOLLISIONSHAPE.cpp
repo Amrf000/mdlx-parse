@@ -21,5 +21,17 @@ MDLCOLLISIONSHAPE::~MDLCOLLISIONSHAPE()
 
 bool MDLCOLLISIONSHAPE::parse(char*& binary,int& rest)
 {
+	memcpy(mdx.Key,binary,4);
+	binary += 4; rest -= 4;
+	memcpy(&mdx.nbytes,binary,4);
+	binary += 4; rest -= 4;
+	
+	int orest = rest;
+	MDLCOLLISIONSHAPE::mdx_::collision co;
+	while(orest - rest<mdx.nbytes)
+	{
+		co.parse(binary,rest);
+		mdx.collisionshape.push_back(co);
+	}
 	return true;
 }

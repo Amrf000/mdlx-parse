@@ -26,6 +26,8 @@ MDLTRANSKEYFRAME::MDLTRANSKEYFRAME(const MDLTRANSKEYFRAME& that)
 	mdx.OutTanx = that.mdx.OutTanx;
 	mdx.OutTany = that.mdx.OutTany;
 	mdx.OutTanz = that.mdx.OutTanz;
+	
+	mdx.LineType= that.mdx.LineType;
 }
 
 bool MDLTRANSKEYFRAME::parse(char*& binary,int& rest,int LineType)

@@ -14,6 +14,15 @@
 #include "MDLGEOSETSECTION.h"
 #include "MDLGEOSETANIMSECTION.h"
 #include "MDLBONESECTION.h"
+#include "MDLHELPSECTION.h"
+#include "MDLATTACHMENTSECTION.h"
+#include "MDLPIVOTSECTION.h"
+#include "MDLPARTICLEEMITTER.h"
+#include "MDLPARTICLEEMITTER2.h"
+#include "MDLRIBBONEMITTER.h"
+#include "MDLCAMERASECTION.h"
+#include "MDLEVENTSECTION.h"
+#include "MDLCOLLISIONSHAPE.h"
 
 bool loadmdx(const std::string& fileName)
 {
@@ -49,7 +58,15 @@ bool loadmdx(const std::string& fileName)
     MDLGEOSETSECTION geos;
     MDLGEOSETANIMSECTION geoa;
     MDLBONESECTION bone;
-    
+    MDLHELPSECTION help;
+    MDLATTACHMENTSECTION  atta;
+    MDLPIVOTSECTION pivo;
+    MDLPARTICLEEMITTER part;
+    MDLPARTICLEEMITTER2 par2;
+    MDLRIBBONEMITTER ribb;
+    MDLCAMERASECTION came;
+    MDLEVENTSECTION evnt;
+    MDLCOLLISIONSHAPE coll;
     
     char* src=buffer;
     int rest = length;
@@ -74,7 +91,25 @@ bool loadmdx(const std::string& fileName)
     std::cout << geoa << std::endl; 
     bone.parse(src,rest);
     std::cout << bone << std::endl; 
-	   
+    help.parse(src,rest);
+    std::cout << help << std::endl; 
+    atta.parse(src,rest);
+    std::cout << atta << std::endl; 
+    pivo.parse(src,rest);
+    std::cout << pivo << std::endl; 
+    part.parse(src,rest);
+    std::cout << part << std::endl; 
+    par2.parse(src,rest);
+    std::cout << par2 << std::endl; 
+    ribb.parse(src,rest);
+    std::cout << ribb << std::endl;
+    came.parse(src,rest);
+    std::cout << came << std::endl;
+    evnt.parse(src,rest);
+    std::cout << evnt << std::endl;
+    coll.parse(src,rest);
+    std::cout << coll << std::endl;
+		 
     delete[] buffer;
     buffer = NULL;
 	return true;

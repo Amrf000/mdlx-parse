@@ -63,6 +63,19 @@ public:
 						  <<md.KATV;
 						return os;
 					}
+					bool parse(char*& binary,int& rest)
+					{
+						memcpy(&nbytesi,binary,4);
+						binary += 4; rest -= 4;	
+						OBJ.parse(binary,rest);
+						memcpy(Path,binary,256);
+						binary += 256; rest -= 256;	
+						memcpy(&spare,binary,4);
+						binary += 4; rest -= 4;	
+						memcpy(&AttachmentID,binary,4);
+						binary += 4; rest -= 4;
+						KATV.parse(binary,rest,"KATV");										
+					}
 					int	nbytesi;
 					MDLGENOBJECT OBJ;
 					char Path[256];
@@ -80,13 +93,15 @@ public:
 			}
 		    friend std::ostream& operator<<(std::ostream& os, const mdx_& md)
 			{
-				os<<"nbytes"<<md.nbytes<<std::endl;
+				os<<"Key"<<md.Key[0]<<md.Key[1]<<md.Key[2]<<md.Key[3]<<std::endl
+				  <<"nbytes"<<md.nbytes<<std::endl;
 				for(int i=0;i<md.attachments.size();++i)
 				{
 					os<<md.attachments[i];
 				}
 				return os;
 			}
+			char Key[4];//ATCH
 			int nbytes;
 			std::vector<attachment> attachments;
 			

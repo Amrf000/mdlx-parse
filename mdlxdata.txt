@@ -448,7 +448,7 @@ A.3 | MDX Format Hierarchy
 [KTAT]--|  |  |--Translation		   [PRE2]--|--ParticleEmitter2
 [KTAR]--|  |  |--Rotation		[KGTR]--|  |  |--Translation
 [KTAS]__/  |  \__Scaling		[KGRT]--|  |  |--Rotation
-           |				[KGSC]--|  |  |--Scaling
+           |				    [KGSC]--|  |  |--Scaling
    [GEOS]--|--Geoset			[KP2S]--|  |  |--Speed
 [VRTX]--|  |  |--Vertices		[KP2L]--|  |  |--Latitudes
 [NRMS]--|  |  |--Normals		[KP2E]--|  |  |--EmissionRate
@@ -460,14 +460,14 @@ A.3 | MDX Format Hierarchy
 [MATS]--|  |  |--Matrices		[KGTR]--|  |  |--Translation
 [UVAS]--|  |  |--...			[KGRT]--|  |  |--Rotation
 [UVBS]__/  |  \__TVertices		[KGSC]--|  |  |--Scaling
-           |				[KRVS]--|  |  |--Speed
+           |				    [KRVS]--|  |  |--Speed
    [GEOA]--|--GeosetAnim		[KRHA]--|  |  |--HeightAbove
 [KGAO]--|  |  |--Alpha			[KRHB]__/  |  \__HeightBelow
 [KGAC]__/  |  \__Color			           |
-           |				   [CAMS]--|--Cameras
-   [BONE]--|--Bone			[KCTR]--|  |  |--Translation
-   [LITE]--|--Light			[KCRL]--|  |  |--Rotation
-[KLAI]--|  |  |--Intensity		[KTTR]__/  |  \__Translation
+           |				       [CAMS]--|--Cameras
+   [BONE]--|--Bone			    [KCTR]--|  |  |--Translation
+   [LITE]--|--Light			    [KCRL]--|  |  |--Rotation
+[KLAI]--|  |  |--Intensity	    [KTTR]__/  |  \__Translation
 [KLAV]--|  |  |--Visibility		           |
 [KLAC]--|  |  |--Color			   [EVTS]--|--EventObject
 [KLBC]--|  |  |--AmbientColor		[KEVT]__/  |  \__...

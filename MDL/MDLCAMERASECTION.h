@@ -77,6 +77,29 @@ public:
 					MDLKEYTRACK<MDLALPHAKEYFRAME> KCRL;
 					MDLKEYTRACK<MDLCOLORKEYFRAME> KTTR;
 					MDLKEYTRACK<MDLALPHAKEYFRAME> BKCT;
+					bool parse(char*& binary,int& rest)
+					{
+						memcpy(&nbytesi,binary,4);
+						binary += 4; rest -= 4;
+						memcpy(Name,binary,80);
+						binary += 80; rest -= 80;
+						memcpy(&PosX,binary,4);
+						binary += 4; rest -= 4;
+						memcpy(&PosY,binary,4);
+						binary += 4; rest -= 4;						
+						memcpy(&PosZ,binary,4);
+						binary += 4; rest -= 4;	
+						memcpy(&FieldOfView,binary,4);
+						binary += 4; rest -= 4;							
+						memcpy(&FarClip,binary,4);
+						binary += 4; rest -= 4;	
+						memcpy(&NearClip,binary,4);
+						binary += 4; rest -= 4;																			
+						Target.parse(binary,rest);
+						KCRL.parse(binary,rest,"KCRL");
+						KTTR.parse(binary,rest,"KTTR");
+						BKCT.parse(binary,rest,"BKCT");						
+					}
 					friend std::ostream& operator<<(std::ostream& os, const camera& md)
 					{
 						return os<<"nbytesi"<<md.nbytesi<<std::endl
@@ -89,11 +112,23 @@ public:
 						   <<md.BKCT;
 					}
 			};
+			char Key[4];//CAMS
 			int	nbytes;
 		    std::vector<camera> cameras;
+		    mdx_()
+		    {
+		    	
+			}
+			mdx_(const mdx_& that)
+			{
+				memcpy(Key,that.Key,4);
+				memcpy(&nbytes,&that.nbytes,4);
+				cameras.assign(that.cameras.begin(),that.cameras.end());
+			}
 			friend std::ostream& operator<<(std::ostream& os, const mdx_& md)
 			{
-				os<<"nbytes"<<md.nbytes<<std::endl;
+				os<<"Key"<<md.Key[0]<<md.Key[1]<<md.Key[2]<<md.Key[3]<<std::endl
+				  <<"nbytes"<<md.nbytes<<std::endl;
 				for(int i=0;i<md.cameras.size();++i)
 				{
 					os<<md.cameras[i];
